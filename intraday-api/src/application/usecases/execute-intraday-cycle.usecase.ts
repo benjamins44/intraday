@@ -276,6 +276,15 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
     let executedTrade: Position | undefined;
     const scores: CarterScore[] = [];
 
+    // Règle d'Ouverture : Filtrage du bruit de 15h30-16h00 (09h30-10h00 EST)
+    if (!marketStatus.canOpenNewPositions) {
+      const waitMessage = marketStatus.isOpeningNoise
+        ? `[Cycle 1-Min] ⏳ Phase d'Ouverture (09h30-10h00 EST / 15h30-16h00 Paris) : Filtrage anti-bruit actif (attente de l'Initial Balance à 16h00). Aucune entrée autorisée.`
+        : `[Cycle 1-Min] ⏸️ Fenêtre d'entrée fermée (${marketStatus.reason}).`;
+      console.log(waitMessage);
+      return this.buildCycleResult(currentTime, marketStatus, breadth, activeOpenPositions, 0, scores, undefined, closedPositions, portfolio, waitMessage);
+    }
+
     const totalCapital = portfolio.totalCapital || (portfolio.availableCash + (portfolio.investedCash || 0));
     const investedCashPercent = totalCapital > 0 ? ((portfolio.investedCash || 0) / totalCapital) * 100 : 0;
     const availableCashPercent = totalCapital > 0 ? (portfolio.availableCash / totalCapital) * 100 : 100;

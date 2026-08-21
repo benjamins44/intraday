@@ -3,6 +3,8 @@ export interface MarketStatus {
   isRegularTradingHours: boolean; // 09h30 - 16h00 EST
   isPreMarket: boolean;          // 04h00 - 09h30 EST
   isPastSquareOff: boolean;      // >= 15h45 EST
+  canOpenNewPositions: boolean;  // 10h00 - 15h45 EST (16h00 - 21h45 Paris)
+  isOpeningNoise: boolean;       // 09h30 - 10h00 EST (15h30 - 16h00 Paris)
   estTimeString: string;
   dayOfWeek: number;             // 0 = Dimanche, 1 = Lundi, ..., 5 = Vendredi, 6 = Samedi
   reason?: string;
@@ -34,10 +36,11 @@ export class MarketHoursService {
     const [hour, minute] = estTimeStr.split(':').map(Number);
     const totalMinutes = hour * 60 + minute;
 
-    const openMinutes = 9 * 60 + 30;   // 09h30 EST
+    const openMinutes = 9 * 60 + 30;       // 09h30 EST
+    const entryOpenMinutes = 10 * 60;      // 10h00 EST (16h00 Paris) - Début des entrées après Initial Balance
     const squareOffMinutes = 15 * 60 + 45; // 15h45 EST
-    const closeMinutes = 16 * 60;      // 16h00 EST
-    const preMarketOpen = 4 * 60;      // 04h00 EST
+    const closeMinutes = 16 * 60;          // 16h00 EST
+    const preMarketOpen = 4 * 60;          // 04h00 EST
 
     const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
 
@@ -47,6 +50,8 @@ export class MarketHoursService {
         isRegularTradingHours: false,
         isPreMarket: false,
         isPastSquareOff: false,
+        canOpenNewPositions: false,
+        isOpeningNoise: false,
         estTimeString: estTimeStr,
         dayOfWeek,
         reason: 'Marché fermé (Week-end)'
@@ -56,9 +61,12 @@ export class MarketHoursService {
     const isRegularTradingHours = totalMinutes >= openMinutes && totalMinutes < closeMinutes;
     const isPreMarket = totalMinutes >= preMarketOpen && totalMinutes < openMinutes;
     const isPastSquareOff = totalMinutes >= squareOffMinutes && totalMinutes < closeMinutes;
+    const isOpeningNoise = totalMinutes >= openMinutes && totalMinutes < entryOpenMinutes;
+    const canOpenNewPositions = totalMinutes >= entryOpenMinutes && totalMinutes < squareOffMinutes;
 
     let reason = 'Marché ouvert (Séance régulière)';
     if (isPastSquareOff) reason = 'Phase de Square-Off (15h45-16h00 EST) : Fermeture des positions';
+    else if (isOpeningNoise) reason = 'Phase d\'Ouverture / Initial Balance (09h30-10h00 EST / 15h30-16h00 Paris) : Filtrage anti-bruit actif';
     else if (isPreMarket) reason = 'Pré-marché US (04h00-09h30 EST)';
     else if (totalMinutes >= closeMinutes || totalMinutes < preMarketOpen) reason = 'Marché fermé (Hors séance)';
 
@@ -67,6 +75,8 @@ export class MarketHoursService {
       isRegularTradingHours,
       isPreMarket,
       isPastSquareOff,
+      canOpenNewPositions,
+      isOpeningNoise,
       estTimeString: estTimeStr,
       dayOfWeek,
       reason
