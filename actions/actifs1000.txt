@@ -1,0 +1,1002 @@
+# TOP 1000 ACTIFS RUSSELL 2000 PAR FORTE VARIATION
+# FORMAT : NOM | TICKER | VARIATION 1J | VARIATION 5J | CAPI
+Sleep Number Corporation - SNBRQ	+602.25%	-98.52%	410 k
+Amylyx Pharmaceuticals, Inc. - AMLX	+63.84%	+0%	3,91 Md
+Blaize Holdings, Inc. - BZAI	-49.31%	-45.59%	80,85 M
+The Arena Group Holdings, Inc. - AREN	+0%	-36.88%	48,09 M
+DocGo Inc. - DCGO	-33.08%	-18.18%	46,94 M
+Weave Communications, Inc. - WEAV	+31.65%	+0%	
+AVITA Medical, Inc. - RCEL	+24.68%	+0%	
+Coherus Oncology, Inc. - CHRS	+16.52%	+0%	
+Haemonetics Corporation - HAE	+15.93%	+0%	4,76 Md
+Aehr Test Systems, Inc. - AEHR	-15.36%	+5.18%	4,02 Md
+MaxLinear, Inc. - MXL	-14.31%	+0%	6,59 Md
+SkinHealth Systems Inc. - SKIN	+0%	-14.29%	78,08 M
+Kaiser Aluminum Corporation - KALU	-13.08%	-16.62%	2,61 Md
+Prairie Operating Co. - PROP	-13.03%	-30.62%	69,65 M
+Cipher Digital Inc. - CIFR	-13%	+0%	6,68 Md
+Enovix Corporation - ENVX	-12.8%	-35.09%	671 M
+AirSculpt Technologies, Inc. - AIRS	-12.64%	-16.17%	194 M
+EyePoint, Inc. - EYPT	+12.32%	+0%	
+Southland Holdings, Inc. - SLND	+11.95%	+0%	
+Methode Electronics, Inc. - MEI	-11.45%	-4.42%	568 M
+Vishay Precision Group, Inc. - VPG	-11.07%	+0.97%	903 M
+AudioEye, Inc. - AEYE	-10.9%	+24.53%	92,51 M
+Rackspace Technology, Inc. - RXT	-10.89%	-19.08%	897 M
+WhiteFiber, Inc. - WYFI	-10.81%	+11.77%	1,05 Md
+Ouster, Inc. - OUST	-10.68%	-4.74%	3,1 Md
+Ameresco, Inc. - AMRC	-10.56%	-1.54%	1,35 Md
+Newsmax Inc. - NMAX	+10.33%	+0%	1,48 Md
+Xencor, Inc. - XNCR	+9.9%	+0%	1,89 Md
+Navitas Semiconductor Corporation - NVTS	-9.67%	-3.16%	3,44 Md
+Aeluma, Inc. - ALMU	-9.62%	-11.65%	294 M
+Nuvectis Pharma, Inc. - NVCT	+9.59%	+0%	
+The Real Brokerage Inc. - REAX	+9.5%	+0%	
+Bit Digital, Inc. - BTBT	-9.38%	+7.41%	523 M
+Kura Oncology, Inc. - KURA	+9.31%	+0%	1,1 Md
+CEVA, Inc. - CEVA	-9.29%	-3.76%	835 M
+Atomera Incorporated - ATOM	-9.23%	-11.67%	192 M
+PDF Solutions, Inc. - PDFS	-9.22%	-2.48%	2,02 Md
+Legence Corp. - LGN	-9.11%	-2.02%	4,9 Md
+CECO Environmental Corp. - CECO	-9.03%	+3.49%	4,48 Md
+Inhibrx Biosciences, Inc. - INBX	-8.91%	-4.34%	1,39 Md
+Flexsteel Industries, Inc. - FLXS	+8.89%	+0%	
+Benchmark Electronics, Inc. - BHE	-8.86%	-5.67%	2,76 Md
+Fastly, Inc. - FSLY	-8.44%	-7.61%	4,24 Md
+AirJoule Technologies Corporation - AIRJW	-8.43%	-16.88%	390 M
+Hudson Technologies, Inc. - HDSN	-8.37%	+1.9%	237 M
+Kimball Electronics, Inc. - KE	-8.34%	-2.46%	592 M
+Beta Bionics, Inc. - BBNX	+8.31%	+0%	
+Materion Corporation - MTRN	-8.26%	-5.97%	5,5 Md
+Quanterix Corporation - QTRX	-8.22%	+2.1%	127 M
+Ichor Holdings, Ltd. - ICHR	-8.06%	-2.12%	2,47 Md
+Carlsmed, Inc. - CARL	+7.98%	+0%	
+QuidelOrtho Corporation - QDEL	-7.89%	-4%	921 M
+Diodes Incorporated - DIOD	-7.87%	-3.93%	4,56 Md
+indie Semiconductor, Inc. - INDI	-7.86%	+13.91%	946 M
+HeartFlow, Inc. - HTFL	+7.84%	+0%	3,93 Md
+Gold.com, Inc. - GOLD	-7.82%	-3.68%	1,21 Md
+Alector, Inc. - ALEC	+7.8%	+0%	
+MARA Holdings, Inc. - MARA	-7.77%	-7.44%	3,46 Md
+National CineMedia, Inc. - NCMI	-7.69%	-33.51%	237 M
+Plexus Corp. - PLXS	-7.68%	+0%	6,75 Md
+SWK Holdings Corporation - SWKHL	-7.56%	+0%	192 M
+Knowles Corporation - KN	-7.51%	-6.51%	3,08 Md
+Amprius Technologies, Inc. - AMPX	-7.51%	-11.34%	1,56 Md
+Penguin Solutions, Inc. - PENG	-7.48%	+1.8%	2,99 Md
+United States Antimony Corporation - UAMY	-7.47%	+0%	778 M
+Astronics Corporation - ATRO	-7.45%	+14.96%	3,7 Md
+Nuvation Bio Inc. - NUVB	+7.41%	+0%	2,44 Md
+nLIGHT, Inc. - LASR	-7.41%	+1.61%	2,88 Md
+TuHURA Biosciences, Inc. - HURA	+7.39%	+0%	
+Mercury Systems, Inc. - MRCY	-7.37%	+0%	6,3 Md
+Resolute Holdings Management, Inc. - RHLD	-7.32%	-4.18%	992 M
+Outset Medical, Inc. - OM	-7.32%	-13.28%	78,57 M
+Arteris, Inc. - AIP	-7.26%	-5.97%	1,27 Md
+Ambiq Micro, Inc. - AMBQ	-7.15%	-3.49%	1,52 Md
+Serve Robotics Inc. - SERV	-7.14%	-7.14%	394 M
+Mama's Creations, Inc. - MAMA	-7.12%	-9.89%	746 M
+J.Jill, Inc. - JILL	+7.07%	+0%	
+Cerus Corporation - CERS	-7.07%	+7.6%	556 M
+Myomo, Inc. - MYO	+7.01%	+0%	
+Fluence Energy, Inc. - FLNC	-6.97%	-10.37%	1,68 Md
+Mammoth Energy Services, Inc. - TUSK	-6.97%	-6.4%	148 M
+Powell Industries, Inc. - POWL	-6.94%	+0%	7,42 Md
+Bel Fuse Inc. - BELFA	-6.93%	-1.52%	3,89 Md
+Novanta Inc. - NOVT	-6.9%	+0%	5,94 Md
+Ultra Clean Holdings, Inc. - UCTT	-6.9%	-4.93%	3,7 Md
+Lumen Technologies, Inc. - LUMN	-6.84%	+0%	6,32 Md
+NANO Nuclear Energy Inc. - NNE	-6.84%	-5.83%	980 M
+USA TODAY Co., Inc. - TDAY	-6.83%	-2.34%	973 M
+Columbus McKinnon Corporation - CMCO	-6.71%	-8.95%	508 M
+Twist Bioscience Corporation - TWST	-6.68%	+0%	7,28 Md
+Shoals Technologies Group, Inc. - SHLS	-6.68%	-12.03%	1,29 Md
+Tandem Diabetes Care, Inc. - TNDM	+6.63%	+0%	1,65 Md
+Eos Energy Enterprises, Inc. - EOSE	-6.62%	-13.44%	1,34 Md
+Mobile Infrastructure Corporation - BEEP	+6.58%	+0%	
+Proto Labs, Inc. - PRLB	-6.58%	-6.16%	2,03 Md
+PAMT CORP - PAMT	-6.56%	-11.98%	248 M
+The Hain Celestial Group, Inc. - HAIN	-6.55%	-3.33%	47,15 M
+Franklin Street Properties Corp. - FSP	+6.54%	+0%	
+CorMedix Inc. - CRMD	+6.52%	+0%	
+Aclaris Therapeutics, Inc. - ACRS	+6.5%	+0%	
+Replimune Group, Inc. - REPL	+6.49%	+0%	1,47 Md
+Constellium SE - CSTM	-6.45%	-6.42%	3,79 Md
+D-Wave Quantum Inc. - QBTS	-6.42%	+0%	7,27 Md
+Veeco Instruments Inc. - VECO	-6.42%	+1.51%	3,11 Md
+Richtech Robotics Inc. - RR	-6.4%	-7.47%	362 M
+Preformed Line Products Company - PLPC	-6.37%	-7.49%	2,17 Md
+Core Scientific, Inc. - CORZ	-6.36%	+0%	6,06 Md
+ADC Therapeutics SA - ADCT	-6.36%	-12.71%	131 M
+RE/MAX Holdings, Inc. - RMAX	+6.33%	+0%	
+Rogers Corporation - ROG	-6.3%	+1.25%	2,44 Md
+Clipper Realty Inc. - CLPR	-6.27%	+7.9%	50,73 M
+Aura Biosciences, Inc. - AURA	+6.25%	+0%	
+zSpace, Inc. - ZSPC	-6.25%	+5.88%	6,67 M
+Geron Corporation - GERN	+0%	-6.13%	983 M
+Rezolve AI PLC - RZLV	-6.13%	-11.87%	977 M
+Solaris Energy Infrastructure, Inc. - SEI	-6.11%	+5.36%	4,08 Md
+Kadant Inc. - KAI	-6.09%	-8.48%	3,66 Md
+Shoulder Innovations, Inc. - SI	+6.07%	+0%	
+Actuate Therapeutics, Inc. - ACTU	+6.06%	+0%	
+Ryerson Holding Corporation - RYZ	-6.06%	-0.97%	1,42 Md
+Cable One, Inc. - CABO	-6.06%	-17.17%	159 M
+Axcelis Technologies, Inc. - ACLS	-6.05%	+0.02%	4,18 Md
+Larimar Therapeutics, Inc. - LRMR	-6.02%	-5.8%	424 M
+NuScale Power Corporation - SMR	-5.98%	-12.64%	3,55 Md
+Heron Therapeutics, Inc. - HRTX	-5.97%	-7.07%	57,13 M
+Boston Omaha Corporation - BOC	+5.95%	+0%	
+Belden Inc. - BDC	-5.95%	-3.89%	5,06 Md
+Myriad Genetics, Inc. - MYGN	-5.9%	-10.87%	275 M
+Quantum Computing Inc. - QUBT	-5.86%	-4.8%	1,93 Md
+American Eagle Outfitters, Inc. - AEO	+0%	-5.82%	2,74 Md
+NioCorp Developments Ltd. - NB	-5.82%	-15.49%	660 M
+Dianthus Therapeutics, Inc. - DNTH	+5.8%	+0%	6,46 Md
+Sunrun Inc. - RUN	-5.8%	-7.68%	2,23 Md
+Vishay Intertechnology, Inc. - VSH	-5.79%	+0.69%	5,14 Md
+Pacific Biosciences of California, Inc. - PACB	-5.79%	+0%	354 M
+Cogent Communications Holdings, Inc. - CCOI	-5.77%	-6.38%	485 M
+CVRx, Inc. - CVRX	+0%	+5.77%	73,26 M
+Power Solutions International, Inc. - PSIX	-5.75%	-11.67%	859 M
+Oklo Inc. - OKLO	-5.74%	+0%	7,69 Md
+Construction Partners, Inc. - ROAD	-5.74%	+0%	6,44 Md
+TrueBlue, Inc. - TBI	+5.73%	+0%	
+SoundThinking, Inc. - SSTI	+5.73%	+0%	
+Flotek Industries, Inc. - FTK	-5.72%	-30.4%	977 M
+Microvast Holdings, Inc. - MVST	-5.7%	-11.91%	293 M
+Alpha Teknova, Inc. - TKNO	-5.68%	-3.27%	366 M
+Codexis, Inc. - CDXS	-5.66%	+1.35%	164 M
+Tutor Perini Corporation - TPC	-5.65%	-5.95%	4,82 Md
+Power Integrations, Inc. - POWI	-5.65%	-7.4%	3,27 Md
+Riot Platforms, Inc. - RIOT	-5.64%	+0%	7,1 Md
+Ginkgo Bioworks Holdings, Inc. - DNA	-5.64%	-13.05%	440 M
+Hyliion Holdings Corp. - HYLN	-5.62%	-1.53%	689 M
+Accendra Health, Inc. - ACH	+5.61%	+0%	
+Adeia Inc. - ADEA	-5.56%	+1.08%	3,09 Md
+LB Pharmaceuticals Inc - LBRX	+5.49%	+0%	1,57 Md
+3D Systems Corporation - DDD	-5.49%	-9.71%	572 M
+NextNRG, Inc. - NXXT	-5.48%	-14.97%	40,02 M
+Optimum Communications, Inc. - OPTU	-5.44%	+1.15%	328 M
+Cohu, Inc. - COHU	-5.43%	+12.12%	2,8 Md
+Wabash National Corporation - WNC	-5.42%	-2.82%	490 M
+CleanSpark, Inc. - CLSK	-5.4%	+1.82%	3,01 Md
+Kosmos Energy Ltd. - KOS	+5.38%	+0%	1,63 Md
+CTS Corporation - CTS	-5.37%	-6.5%	1,71 Md
+Entravision Communications Corporation - EVC	-5.29%	-8.78%	777 M
+Evolus, Inc. - EOLS	+5.28%	+0%	
+Solesence, Inc. - SLSN	-5.28%	-13.14%	62,58 M
+Plug Power Inc. - PLUG	-5.26%	-2.7%	3,02 Md
+Kopin Corporation - KOPN	-5.26%	-3.08%	905 M
+Arhaus, Inc. - ARHS	+5.25%	+0%	1,42 Md
+Intuitive Machines, Inc. - LUNR	-5.25%	+17.17%	3,35 Md
+Dream Finders Homes, Inc. - DFH	-5.24%	+1.06%	1,3 Md
+TETRA Technologies, Inc. - TTI	-5.23%	-9.52%	1,18 Md
+Root, Inc. - ROOT	+5.21%	+0%	
+Harmonic Inc. - HLIT	-5.21%	+11.18%	1,39 Md
+Synaptics Incorporated - SYNA	-5.2%	-1.95%	4,1 Md
+FTAI Infrastructure Inc. - FIP	-5.18%	-7.78%	476 M
+Barrett Business Services, Inc. - BBSI	+5.17%	+0%	
+Siebert Financial Corp. - SIEB	+5.15%	+0%	
+Hawkins, Inc. - HWKN	-5.15%	-3.75%	2,61 Md
+Custom Truck One Source, Inc. - CTOS	-5.15%	-6.48%	2,26 Md
+Ramaco Resources, Inc. - METC	-5.15%	+13.61%	672 M
+Rigetti Computing, Inc. - RGTI	-5.14%	+0%	5,91 Md
+Scholar Rock Holding Corporation - SRRK	+5.13%	+0%	6,66 Md
+Photronics, Inc. - PLAB	-5.12%	-3.36%	1,88 Md
+biote Corp. - BTMD	-5.11%	-15.58%	37,28 M
+Tucows Inc. - TCX	-5.1%	-20.02%	114 M
+GPGI, Inc. - GPGI	-5.08%	-11.64%	3,63 Md
+Priority Technology Holdings, Inc. - PRTH	+5.06%	+0%	
+enCore Energy Corp. - EU	-5.06%	-22.28%	210 M
+Inseego Corp. - INSG	-5.04%	-16.25%	71,1 M
+Unisys Corporation - UIS	-5%	-5.34%	194 M
+Nano-X Imaging Ltd. - NNOX	-5%	-20.1%	61,73 M
+Mayville Engineering Company, Inc. - MEC	-4.98%	+3.47%	594 M
+Capricor Therapeutics, Inc. - CAPR	-4.97%	+80.15%	412 M
+MYR Group Inc. - MYRG	-4.96%	-1.83%	5,04 Md
+Torrid Holdings Inc. - CURV	+4.95%	+0%	
+Brightstar Lottery PLC - BRSL	-4.93%	-2.22%	2,02 Md
+Enpro Inc. - NPO	-4.88%	+0%	6,92 Md
+American Outdoor Brands, Inc. - AOUT	-4.87%	-9.36%	144 M
+OSI Systems, Inc. - OSIS	-4.85%	-6.2%	3,61 Md
+ArcBest Corporation - ARCB	-4.84%	+2.25%	3,1 Md
+Portillo's Inc. - PTLO	-4.83%	+4.88%	343 M
+Puma Biotechnology, Inc. - PBYI	+4.76%	+0%	
+Ambarella, Inc. - AMBA	-4.74%	-9.74%	3,28 Md
+Hovnanian Enterprises, Inc. - HOV	-4.74%	-9.36%	708 M
+Dakota Gold Corp. - DC	-4.73%	-7.3%	784 M
+T1 Energy Inc. - TE	-4.71%	-14.99%	1,37 Md
+PAR Technology Corporation - PAR	+4.69%	+0%	
+Palomar Holdings, Inc. - PLMR	+4.66%	+0%	3,41 Md
+Frequency Electronics, Inc. - FEIM	-4.65%	-0.96%	824 M
+PureCycle Technologies, Inc. - PCT	-4.64%	-10.07%	1,38 Md
+Bumble Inc. - BMBL	+4.62%	+0%	
+Zenas BioPharma, Inc. - ZBIO	+4.62%	+0%	2,08 Md
+NET Power Inc. - NPWR	-4.62%	+1.85%	146 M
+Nerdy Inc. - NRDY	-4.61%	+220.48%	83,62 M
+LegalZoom.com, Inc. - LZ	+4.6%	+0%	
+OPENLANE, Inc. - OPLN	-4.59%	-8.27%	4,11 Md
+Proficient Auto Logistics, Inc. - PAL	-4.58%	+10.2%	158 M
+Centrus Energy Corp. - LEU	-4.57%	-7.13%	3,51 Md
+AIRO Group Holdings, Inc. - AIRO	-4.57%	+6.52%	283 M
+Richardson Electronics, Ltd. - RELL	-4.57%	-5.89%	279 M
+Repay Holdings Corporation - RPAY	+4.56%	+0%	
+Dauch Corporation - DCH	-4.56%	-5.81%	1,54 Md
+Alta Equipment Group Inc. - ALTG	-4.56%	-12.07%	219 M
+Hillman Solutions Corp. - HLMN	-4.54%	-6.55%	1,64 Md
+Clearfield, Inc. - CLFD	-4.45%	-4.45%	382 M
+AZZ Inc. - AZZ	-4.44%	-4.38%	4,4 Md
+The Manitowoc Company, Inc. - MTW	-4.41%	-0.82%	696 M
+Itron, Inc. - ITRI	-4.4%	-6.92%	4,21 Md
+Forum Energy Technologies, Inc. - FET	-4.4%	-0.67%	928 M
+Energy Fuels Inc. - UUUU	-4.39%	-4.76%	3,53 Md
+Gevo, Inc. - GEVO	-4.38%	-6.13%	366 M
+MannKind Corporation - MNKD	+4.36%	+0%	1,31 Md
+Appian Corporation - APPN	+4.35%	+0%	2,61 Md
+Liquidia Corporation - LQDA	-4.34%	+0%	6,65 Md
+Innventure, Inc. - INV	-4.33%	-60.57%	112 M
+Terex Corporation - TEX	-4.32%	+0%	7,36 Md
+AMN Healthcare Services, Inc. - AMN	+0%	+4.32%	1,34 Md
+Janux Therapeutics, Inc. - JANX	+4.31%	+0%	1,04 Md
+Shake Shack Inc. - SHAK	-4.31%	-1.09%	2,87 Md
+Sphere Entertainment Co. - SPHR	-4.3%	+1.14%	5,9 Md
+AlTi Global, Inc. - ALTI	-4.3%	-1.47%	444 M
+Advantage Solutions Inc. - ADV	+4.28%	+0%	
+N-able, Inc. - NABL	+4.28%	+0%	
+Universal Technical Institute, Inc. - UTI	-4.28%	-1.8%	1,38 Md
+Astec Industries, Inc. - ASTE	-4.28%	-3.59%	953 M
+Friedman Industries, Incorporated - FRD	-4.28%	+7.35%	332 M
+Liberty Energy Inc. - LBRT	-4.27%	-0.88%	3,47 Md
+Hims & Hers Health, Inc. - HIMS	-4.26%	+0%	6,39 Md
+Avient Corporation - AVNT	-4.25%	-4.42%	3,99 Md
+Koppers Holdings Inc. - KOP	-4.24%	-1.24%	859 M
+Limbach Holdings, Inc. - LMB	-4.24%	-7%	515 M
+Absci Corporation - ABSI	-4.22%	-5.95%	1,52 Md
+Xometry, Inc. - XMTR	-4.21%	-5.99%	4,93 Md
+Braze, Inc. - BRZE	+4.19%	+0%	3,28 Md
+Innodata Inc. - INOD	-4.17%	-1.74%	2,12 Md
+LiveWire Group, Inc. - LVWR	-4.17%	-0.86%	255 M
+Bitdeer Technologies Group - BTDR	-4.15%	+3.57%	2,45 Md
+Ivanhoe Electric Inc. - IE	-4.15%	-8.72%	1,62 Md
+Tronox Holdings plc - TROX	-4.15%	-13.3%	885 M
+Aspen Aerogels, Inc. - ASPN	-4.12%	-9.12%	463 M
+ADTRAN Holdings, Inc. - ADTN	+4.09%	+0%	
+NovaGold Resources Inc. - NG	-4.09%	-3.46%	3,26 Md
+Organogenesis Holdings Inc. - ORGO	+4.07%	+0%	
+10x Genomics, Inc. - TXG	-4.07%	+0%	7,25 Md
+Upstream Bio, Inc. - UPB	-4.06%	-3.39%	375 M
+Intellia Therapeutics, Inc. - NTLA	-4.05%	-3.49%	1,63 Md
+ORIC Pharmaceuticals, Inc. - ORIC	+4.04%	+0%	1,44 Md
+USA Rare Earth, Inc. - USAR	-4.04%	-2.12%	4,53 Md
+Compass Minerals International, Inc. - CMP	-4.04%	-8.38%	1,04 Md
+ACADIA Pharmaceuticals Inc. - ACAD	+4.03%	+0%	5,2 Md
+InnovAge Holding Corp. - INNV	+4.03%	+0%	1,51 Md
+TriNet Group, Inc. - TNET	+4.02%	+0%	3,21 Md
+Paysign, Inc. - PAYS	+4%	+0%	
+SelectQuote, Inc. - SLQT	+4%	+0%	
+BRC Inc. - RILY	-3.98%	-3.83%	98,46 M
+Voyager Technologies, Inc. - VOYG	-3.96%	-1.54%	2,58 Md
+Hyster-Yale, Inc. - HY	-3.95%	-3.42%	598 M
+MediaAlpha, Inc. - MAX	+3.94%	+0%	
+O-I Glass, Inc. - OI	-3.93%	-11.05%	977 M
+Covenant Logistics Group, Inc. - CVLG	-3.92%	+2.04%	864 M
+Primoris Services Corporation - PRIM	-3.91%	-2.87%	4,3 Md
+Deluxe Corporation - DLX	-3.91%	-2.18%	1,07 Md
+Arq, Inc. - ARQ	-3.9%	+0%	96,94 M
+SunCoke Energy, Inc. - SXC	-3.89%	-1.3%	776 M
+BridgeBio Pharma, Inc. - BBIO	+3.87%	+0%	16,22 Md
+Xeris Biopharma Holdings, Inc. - XERS	+3.87%	+0%	1,61 Md
+Evolent Health, Inc. - EVH	+3.85%	+0%	
+HF Foods Group Inc. - HFFG	+3.83%	+0%	
+Firefly Aerospace Inc. - FLY	-3.83%	-0.83%	4,38 Md
+Solid Power, Inc. - SLDP	-3.83%	-6.22%	516 M
+PowerFleet Inc. - AIOT	+3.82%	+0%	
+JetBlue Airways Corporation - JBLU	-3.82%	-13.25%	1,9 Md
+RPC, Inc. - RES	-3.81%	-0.16%	1,38 Md
+IDEAYA Biosciences, Inc. - IDYA	+3.8%	+0%	3,66 Md
+LGI Homes, Inc. - LGIH	-3.8%	-2.44%	1,31 Md
+Gencor Industries, Inc. - GENC	-3.8%	+11.21%	282 M
+Blue Bird Corporation - BLBD	-3.79%	-7.13%	1,95 Md
+Allient Inc. - ALNT	-3.79%	-4.59%	1,85 Md
+Prime Medicine, Inc. - PRME	-3.79%	-6.44%	543 M
+MaxCyte, Inc. - MXCT	-3.79%	+2.42%	131 M
+Humacyte, Inc. - HUMA	+3.76%	+0%	
+Concrete Pumping Holdings, Inc. - BBCP	-3.75%	-0.96%	466 M
+Sonida Senior Living, Inc. - SNDA	+3.74%	+0%	1,92 Md
+Asana, Inc. - ASAN	+3.74%	+0%	2,11 Md
+Diversified Healthcare Trust - DHC	-3.74%	-2.21%	1,93 Md
+Grocery Outlet Holding Corp. - GO	-3.74%	+12.51%	1,1 Md
+Graham Corporation - GHC	-3.73%	+2.22%	1,3 Md
+Group 1 Automotive, Inc. - GPI	-3.72%	-6.1%	2,95 Md
+Ormat Technologies, Inc. - ORA	-3.71%	+0%	6,74 Md
+Marriott Vacations Worldwide Corporation - VAC	-3.71%	+0.16%	3,96 Md
+Insperity, Inc. - NSP	+3.71%	+3.24%	2 Md
+Hertz Global Holdings, Inc. - HTZ	-3.7%	-15.1%	741 M
+Abeona Therapeutics Inc. - ABEO	+3.7%	-16.76%	352 M
+Chaince Digital Holdings Inc. - CD	+3.69%	+18.89%	402 M
+Boot Barn Holdings, Inc. - BOOT	-3.68%	-4.65%	4,79 Md
+Sonic Automotive, Inc. - SAH	-3.68%	-4.09%	2,44 Md
+EverQuote, Inc. - EVER	+3.68%	-2.27%	864 M
+Energy Services of America Corporation - ESOA	-3.68%	-5.06%	234 M
+Neuronetics, Inc. - STIM	-3.67%	-1.25%	240 M
+Upwork Inc. - UPWK	+3.66%	+1.56%	1,06 Md
+Enanta Pharmaceuticals, Inc. - ENTA	+3.66%	-1.63%	387 M
+Vox Royalty Corp. - VOXR	-3.66%	-2.07%	355 M
+NerdWallet, Inc. - NRDS	+3.65%	+1.74%	636 M
+Herc Holdings Inc. - HRI	-3.64%	-2.46%	5,58 Md
+Viridian Therapeutics, Inc. - VRDN	+3.64%	+4.18%	2,71 Md
+Enovis Corporation - ENOV	+3.64%	+4.23%	1,48 Md
+Perella Weinberg Partners - PWP	-3.64%	-8.95%	1,2 Md
+Falcon's Beyond Global, Inc. - FBYD	+3.64%	+5.72%	510 M
+New Fortress Energy Inc. - NFE	-3.64%	-10.69%	84,01 M
+Arcutis Biotherapeutics, Inc. - ARQT	+3.63%	+1.18%	3,34 Md
+Metallus Inc. - MTUS	-3.63%	-2.21%	880 M
+Better Home & Finance Holding Company - BETR	-3.62%	-15.97%	248 M
+Empire Petroleum Corporation - EP	+3.62%	+7.92%	114 M
+Array Technologies, Inc. - ARRY	-3.61%	-10.28%	739 M
+Maximus, Inc. - MMS	+3.6%	+4.06%	2,95 Md
+ProFrac Holding Corp. - ACDC	-3.6%	-3.42%	927 M
+Savara Inc. - SVRA	+0%	-3.59%	1,36 Md
+Douglas Elliman Inc. - DOUG	-3.59%	-6.93%	171 M
+F&G Annuities & Life, Inc. - FG	-3.58%	-4.7%	3,35 Md
+MiMedx Group, Inc. - MDXG	+3.58%	+0.46%	633 M
+Shenandoah Telecommunications Company - SHEN	-3.57%	-8.98%	649 M
+Emergent BioSolutions Inc. - EBS	+3.56%	+4.72%	239 M
+Accuray Incorporated - ARAY	-3.55%	+8.73%	37,47 M
+Rush Street Interactive, Inc. - RSI	-3.54%	-2.39%	2,84 Md
+HireQuest, Inc. - HQI	+3.53%	-2.73%	232 M
+Quanex Building Products Corporation - NX	-3.52%	-8.59%	910 M
+Lifecore Biomedical, Inc. - LFCR	-3.52%	-9.32%	166 M
+CoreCivic, Inc. - CXW	-3.51%	-4.48%	3,2 Md
+IMAX Corporation - IMAX	-3.51%	-0.08%	2,77 Md
+RXO, Inc. - RXO	-3.5%	+5.35%	3,73 Md
+Redwire Corporation - RDW	-3.5%	-4.22%	3,22 Md
+BK Technologies Corporation - BKTI	+3.5%	+1.99%	297 M
+Madison Square Garden Entertainment Corp. - MSGE	-3.49%	+3.19%	3,87 Md
+Genius Sports Limited - GENI	-3.48%	-3.73%	2 Md
+Verastem, Inc. - VSTM	+3.48%	+5.39%	673 M
+Compass Therapeutics, Inc. - CMPX	+3.46%	+8.64%	430 M
+American Superconductor Corporation - AMSC	-3.45%	-3.45%	1,5 Md
+Ardelyx, Inc. - ARDX	-3.45%	-0.51%	977 M
+Vanda Pharmaceuticals Inc. - VNDA	+3.42%	+10.34%	329 M
+ArriVent BioPharma, Inc. - AVBP	+3.41%	-4.43%	1,48 Md
+Strata Critical Medical, Inc. - SRTA	-3.39%	-5.47%	504 M
+Ocular Therapeutix, Inc. - OCUL	+3.38%	+12.81%	2,42 Md
+Lincoln Educational Services Corporation - LINC	-3.38%	-8.66%	880 M
+Kennametal Inc. - KMT	-3.36%	+1.65%	2,34 Md
+Rush Enterprises, Inc. - RUSHA	-3.34%	+0%	6,17 Md
+Veracyte, Inc. - VCYT	-3.33%	-12.35%	3,27 Md
+Target Hospitality Corp. - TH	-3.32%	+5.11%	1,74 Md
+Gaia, Inc. - GAIA	-3.31%	+18.22%	37,12 M
+Federal Signal Corporation - FSS	-3.3%	+0%	7,45 Md
+Joby Aviation, Inc. - JOBY	-3.29%	+0%	7,57 Md
+AGNT, Inc - AGNT	+3.29%	+2.81%	734 M
+American Battery Technology Company - ABAT	-3.29%	-11.65%	321 M
+Standard BioTools Inc. - LAB	-3.29%	-15.94%	260 M
+VSE Corporation - VSEC	-3.27%	+0%	6,61 Md
+Remitly Global, Inc. - RELY	-3.27%	+7.75%	5,39 Md
+Pacira BioSciences, Inc. - PCRX	+3.27%	-1.56%	957 M
+CS Disco, Inc. - LAW	+3.27%	+4.99%	287 M
+Verra Mobility Corporation - VRRM	-3.26%	-6.9%	676 M
+Intapp, Inc. - INTA	+3.25%	-0.43%	3,04 Md
+Freshworks Inc. - FRSH	+3.24%	+6.35%	3,32 Md
+Excelerate Energy, Inc. - EE	+3.24%	+5.35%	1,17 Md
+OrthoPediatrics Corp. - KIDS	+3.24%	+5.2%	666 M
+CPI Card Group Inc. - PMTS	-3.24%	-8.95%	320 M
+Happen, Inc. - HAPN	-3.23%	-3.43%	2,14 Md
+TIC Solutions, Inc. - TIC	-3.23%	-11.76%	2,04 Md
+EVgo, Inc. - EVGO	-3.23%	-6.25%	213 M
+Definitive Healthcare Corp. - DH	+3.22%	+2.53%	70,45 M
+ProPetro Holding Corp. - PUMP	-3.21%	+6.27%	1,52 Md
+First Advantage Corporation - FA	+3.2%	-1.04%	3,6 Md
+Alliance Laundry Holdings Inc. - ALH	-3.19%	-8.78%	4,77 Md
+BlueLinx Holdings Inc. - BXC	-3.19%	-8.13%	649 M
+Contango Silver & Gold Inc. - CTGO	-3.19%	-3.91%	636 M
+Energy Recovery, Inc. - ERII	-3.19%	+2.07%	402 M
+Hilton Grand Vacations Inc. - HGV	-3.18%	+1.09%	3,38 Md
+BlackLine, Inc. - BL	+3.17%	+7.5%	1,76 Md
+Frontier Group Holdings, Inc. - ULCC	-3.15%	-11.06%	1,42 Md
+CSW Industrials, Inc. - CSW	-3.13%	-5.49%	5,41 Md
+Helios Technologies, Inc. - HLIO	-3.13%	-2.01%	2,62 Md
+Sprinklr, Inc. - CXM	+3.13%	+0.58%	1,62 Md
+Century Aluminum Company - CENX	-3.1%	-12.68%	4,52 Md
+Journey Medical Corporation - DERM	+3.1%	+5.38%	188 M
+Park-Ohio Holdings Corp. - PKOH	-3.09%	-0.69%	663 M
+SSR Mining Inc. - SSRM	-3.08%	+0%	6,46 Md
+Allegiant Travel Company - ALGT	-3.08%	-7.52%	2,22 Md
+Adient plc - ADNT	-3.08%	+1.78%	1,5 Md
+Expensify, Inc. - EXFY	+3.08%	+1.3%	213 M
+Castle Biosciences, Inc. - CSTL	-3.07%	-9.96%	887 M
+Transcat, Inc. - TRNS	-3.06%	-4.63%	851 M
+AAR Corp. - AIR	-3.05%	+2.45%	5,87 Md
+Precigen, Inc. - PGEN	+3.05%	-1.6%	2,42 Md
+CuriosityStream Inc. - CURI	-3.05%	+2.14%	170 M
+Waldencast plc - WALD	+0%	+3.05%	162 M
+Burford Capital Limited - BUR	-3.04%	-4.61%	909 M
+Starling Oncology, Inc. - STLN	+3.04%	+4.12%	652 M
+Bioventus Inc. - BVS	+3.03%	+3.25%	977 M
+Ferroglobe PLC - GSM	-3.03%	-8.97%	777 M
+NexPoint Diversified Real Estate Trust - NXDT	+3.03%	+8.51%	271 M
+Titan International, Inc. - TWI	-3.02%	-10.08%	414 M
+Clean Energy Fuels Corp. - CLNE	-3.02%	-6.14%	354 M
+Riverview Bancorp, Inc. - RVSB	+0%	-3.02%	104 M
+Titan America SA - TTAM	-3.01%	-5.43%	2,79 Md
+Tactile Systems Technology, Inc. - TCMD	-3.01%	-1.24%	540 M
+MainStreet Bancshares, Inc. - MNSB	+3.01%	+3.51%	174 M
+DMC Global Inc. - BOOM	-3.01%	-7.33%	145 M
+Zymeworks Inc. - ZYME	+3%	+7.2%	1,85 Md
+Lands' End, Inc. - LE	-3%	-8.64%	367 M
+Lifezone Metals Limited - LZM	-3%	-6.28%	349 M
+The Vita Coco Company, Inc. - COCO	-2.99%	-1.43%	3,73 Md
+Legacy Housing Corporation - LEGH	-2.99%	-2.45%	671 M
+Tenable Holdings, Inc. - TENB	+2.98%	-3.96%	4 Md
+Quaker Chemical Corporation - KWR	-2.98%	-3.52%	2,84 Md
+Vestis Corporation - VSTS	-2.98%	-6.27%	1,72 Md
+Atlas Energy Solutions Inc. - AESI	+2.97%	+7.01%	1,58 Md
+Matthews International Corporation - MATW	-2.96%	-5.02%	697 M
+Gogo Inc. - GOGO	-2.96%	-9.34%	355 M
+Electromed, Inc. - ELMD	+2.96%	-2.29%	343 M
+JBT Marel Corporation - JBTM	-2.95%	+0%	5,95 Md
+Nabors Industries Ltd. - NBR	-2.95%	+6.45%	1,39 Md
+OptimizeRx Corporation - OPRX	-2.95%	+18.93%	155 M
+Kinetik Holdings Inc. - KNTK	+2.94%	+6.71%	4,39 Md
+Granite Ridge Resources, Inc. - GRNT	+2.94%	+1.54%	689 M
+Ooma, Inc. - OOMA	+2.94%	-1.76%	568 M
+M-tron Industries, Inc. - MPTI	-2.94%	-0.19%	371 M
+Herbalife Ltd. - HLF	+2.92%	+5.11%	1,29 Md
+Annexon, Inc. - ANNX	+2.92%	-1.12%	1 Md
+Pagaya Technologies Ltd. - PGY	-2.91%	-4.15%	1,7 Md
+Yext, Inc. - YEXT	+2.91%	+5.25%	602 M
+QuinStreet, Inc. - QNST	+2.9%	-0.67%	1,19 Md
+Aviat Networks, Inc. - AVNW	-2.9%	+1.9%	277 M
+Grandstand Limited - GRSD	-2.9%	+6.35%	71,55 M
+Vertex, Inc. - VERX	+2.89%	+4.91%	2,08 Md
+Arko Corp. - ARKO	-2.88%	+7.03%	530 M
+Franklin Covey Co. - FC	+2.88%	-5.53%	222 M
+PRA Group, Inc. - PRAA	-2.87%	+4.86%	740 M
+Claros Mortgage Trust, Inc. - CMTG	-2.86%	-8.11%	240 M
+aTyr Pharma, Inc. - ATYR	-2.85%	-5.6%	49,45 M
+Ermenegildo Zegna N.V. - ZGN	-2.83%	-5.51%	3,61 Md
+Callaway Golf Company - CALY	-2.83%	-4.27%	2,88 Md
+Lifeway Foods, Inc. - LWAY	+2.83%	-14.25%	384 M
+Paysafe Limited - PSFE	-2.83%	-5.37%	340 M
+Peabody Energy Corporation - BTU	-2.82%	+3.15%	3,07 Md
+Granite Construction Incorporated - GVA	-2.81%	-0.76%	5,45 Md
+Addus HomeCare Corporation - ADUS	+2.81%	+1.06%	2,16 Md
+NWPX Infrastructure, Inc. - NWPX	-2.81%	+1.78%	1,1 Md
+Patriot National Bancorp, Inc. - PNBK	-2.78%	-9.48%	124 M
+RadNet, Inc. - RDNT	-2.77%	-3.29%	5,81 Md
+Gentherm Incorporated - THRM	-2.77%	+1.76%	1,29 Md
+Industrial Logistics Properties Trust - ILPT	-2.77%	-4.75%	563 M
+Onity Group Inc. - ONIT	-2.77%	-5.18%	311 M
+Digi International Inc. - DGII	-2.76%	-3.04%	3,08 Md
+Fortrea Holdings Inc. - FTRE	-2.76%	-9.84%	1,67 Md
+Arbutus Biopharma Corporation - ABUS	+2.76%	+3.64%	958 M
+Rigel Pharmaceuticals, Inc. - RIGL	+2.76%	+3.81%	815 M
+Worthington Steel, Inc. - WS	-2.75%	-2.46%	1,88 Md
+Eton Pharmaceuticals, Inc. - ETON	+2.75%	+50.84%	1,81 Md
+Matrix Service Company - MTRX	-2.75%	-0.77%	328 M
+McGraw Hill, Inc. - MH	+2.74%	+14.09%	2,51 Md
+A10 Networks, Inc. - ATEN	-2.74%	-2.1%	1,93 Md
+Idaho Strategic Resources, Inc. - IDR	-2.74%	-14.09%	472 M
+FuboTV Inc. - FUBO	-2.73%	+2.99%	302 M
+Sprout Social, Inc. - SPT	+2.72%	-0.96%	594 M
+USANA Health Sciences, Inc. - USNA	+2.72%	-4%	244 M
+Coursera, Inc. - COUR	+2.71%	+0%	1,5 Md
+Caleres, Inc. - CAL	-2.71%	-8.69%	434 M
+Stratus Properties Inc. - STRS	+0%	+2.71%	154 M
+Oruka Therapeutics, Inc. - ORKA	+2.7%	+0%	7,49 Md
+Red Rock Resorts, Inc. - RRR	-2.69%	-2.43%	3,56 Md
+Myers Industries, Inc. - MYE	-2.69%	-0.4%	1,21 Md
+American Vanguard Corporation - AVD	-2.69%	-0.91%	64,02 M
+Ardagh Metal Packaging S.A. - AMBP	-2.68%	+0.59%	3,04 Md
+Urban Outfitters, Inc. - URBN	-2.67%	+0%	6,39 Md
+KB Home - KBH	-2.65%	-6.51%	3,31 Md
+TransMedics Group, Inc. - TMDX	+2.65%	+1.49%	3,14 Md
+Orion Group Holdings, Inc. - ORN	-2.65%	-2.25%	387 M
+EVERTEC, Inc. - EVTC	-2.63%	+0.27%	1,77 Md
+SKYX Platforms Corp. - SKYX	+2.63%	-4.88%	158 M
+National HealthCare Corporation - NHC	+2.62%	+8.07%	3,67 Md
+Ibotta, Inc. - IBTA	+2.62%	+0.33%	854 M
+OmniAb, Inc. - OABI	+2.62%	+15.98%	570 M
+West Bancorporation, Inc. - WTBA	-2.61%	+0.1%	497 M
+Mirion Technologies, Inc. - MIR	-2.6%	+0.39%	3,73 Md
+United Natural Foods, Inc. - UNFI	-2.6%	-0.87%	2,84 Md
+The RMR Group Inc. - RMR	-2.6%	+0.66%	339 M
+Tonix Pharmaceuticals Holding Corp. - TNXP	+0%	+2.59%	217 M
+Aebi Schmidt Holding AG - AEBI	-2.58%	-6.14%	937 M
+LSB Industries, Inc. - LXU	-2.57%	+2.4%	737 M
+Orion S.A. - OEC	-2.57%	-9%	343 M
+Atlanticus Holdings Corporation - ATLCP	-2.56%	+4.36%	1,48 Md
+Daktronics, Inc. - DAKT	-2.56%	-8.35%	939 M
+Qualys, Inc. - QLYS	+2.55%	+0%	6,5 Md
+Kelly Services, Inc. - KELYA	+2.55%	+7%	591 M
+Utah Medical Products, Inc. - UTMD	+2.55%	+0.08%	229 M
+Cavco Industries, Inc. - CVCO	-2.54%	-1.58%	4,5 Md
+PagSeguro Digital Ltd. - PAGS	-2.54%	-5.06%	2,33 Md
+KKR Real Estate Finance Trust Inc. - KREF	-2.54%	-3.83%	426 M
+MBX Biosciences, Inc. - MBX	-2.53%	+0.77%	3,2 Md
+Neogen Corporation - NEOG	-2.53%	+0.7%	2,52 Md
+Corsair Gaming, Inc. - CRSR	-2.53%	-7.01%	1,29 Md
+Champion Homes, Inc. - SKY	-2.52%	-3.51%	4,93 Md
+Oxford Industries, Inc. - OXM	-2.52%	-1.96%	531 M
+LSI Industries Inc. - LYTS	-2.51%	-2.31%	859 M
+Nexxen International Ltd. - NEXN	-2.51%	-0.1%	571 M
+Monro, Inc. - MNRO	+2.51%	+1.63%	370 M
+eHealth, Inc. - EHTH	+2.5%	+0.82%	39,4 M
+Sensient Technologies Corporation - SXT	-2.48%	-1.33%	5,54 Md
+The Cheesecake Factory Incorporated - CAKE	-2.48%	-5.93%	5,29 Md
+Cabot Corporation - CBT	-2.48%	-3.13%	4,35 Md
+International Money Express, Inc. - IMXI	-2.48%	+24.85%	439 M
+Vroom, Inc. - VRM	-2.48%	-4.27%	49,31 M
+Hallador Energy Company - HNRG	-2.47%	+0.96%	744 M
+American Realty Investors, Inc. - ARL	+2.47%	-1.97%	241 M
+AMC Entertainment Holdings, Inc. - AMC	-2.46%	-0.83%	2,12 Md
+Q2 Holdings, Inc. - QTWO	-2.44%	-0.82%	3,92 Md
+First Watch Restaurant Group, Inc. - FWRG	-2.44%	+1.95%	741 M
+Atmus Filtration Technologies Inc. - ATMU	-2.43%	+0.87%	4,07 Md
+Alumis Inc. - ALMS	-2.43%	-1.93%	3,22 Md
+Walker & Dunlop, Inc. - WD	-2.43%	-7.76%	1,36 Md
+Marten Transport, Ltd. - MRTN	-2.42%	+2.69%	1,22 Md
+Fluor Corporation - FLR	-2.41%	+0%	7,14 Md
+CRISPR Therapeutics AG - CRSP	-2.41%	-2.03%	5,12 Md
+BioCryst Pharmaceuticals, Inc. - BCRX	-2.41%	-6.19%	2,48 Md
+GigaCloud Technology Inc. - GCT	-2.41%	-4.76%	1,75 Md
+Arlo Technologies, Inc. - ARLO	-2.41%	-9.16%	1,44 Md
+CRA International, Inc. - CRAI	+2.41%	-0.33%	1,06 Md
+SI-BONE, Inc. - SIBN	+2.41%	+1.81%	858 M
+Insteel Industries Inc. - IIIN	-2.41%	-2.08%	620 M
+Gray Media, Inc. - GTN	-2.41%	+2.1%	484 M
+Vistance Networks, Inc. - VISN	-2.4%	-2.74%	2,62 Md
+Centerspace - CSR	-2.4%	-2.65%	896 M
+Allogene Therapeutics, Inc. - ALLO	-2.4%	-4.25%	701 M
+Valhi, Inc. - VHI	+2.4%	+1.71%	471 M
+BGC Group, Inc. - BGC	+2.38%	+10.24%	5,26 Md
+Viant Technology Inc. - DSP	+2.38%	-2.12%	273 M
+Ingevity Corporation - NGVT	-2.37%	-4.88%	2,54 Md
+AerSale Corporation - ASLE	-2.37%	+0.52%	275 M
+SkyWest, Inc. - SKYW	-2.36%	-4.46%	4 Md
+The Gorman-Rupp Company - GRC	-2.36%	-4.88%	2,08 Md
+Gibraltar Industries, Inc. - ROCK	-2.36%	-6.75%	1,38 Md
+Garrett Motion Inc. - GTX	-2.34%	-4.16%	5,21 Md
+FinWise Bancorp - FINW	+2.33%	+1.96%	195 M
+Brookfield Infrastructure Corporation - BIPC	-2.32%	-1.2%	4,8 Md
+Himalaya Shipping Ltd. - HSHP	+2.32%	+5.93%	735 M
+The Bank of N.T. Butterfield & Son Limited - NTB	-2.3%	-3%	2,42 Md
+Amphastar Pharmaceuticals, Inc. - AMPH	+2.3%	+4.51%	908 M
+LifeVantage Corporation - LFVN	-2.3%	-4.35%	80,36 M
+Agios Pharmaceuticals, Inc. - AGIO	+2.29%	+5.23%	2,05 Md
+REGENXBIO Inc. - RGNX	-2.29%	+3.94%	731 M
+Fate Therapeutics, Inc. - FATE	-2.29%	-6.57%	307 M
+UFP Technologies, Inc. - UFPT	-2.28%	-2.46%	2,43 Md
+Monte Rosa Therapeutics, Inc. - GLUE	-2.28%	-4.63%	1,28 Md
+STAAR Surgical Company - STAA	+2.28%	-1.2%	1,24 Md
+Grid Dynamics Holdings, Inc. - GDYN	+2.27%	-1.29%	622 M
+Cimpress plc - CMPR	-2.26%	-5.98%	2,18 Md
+ZipRecruiter, Inc. - ZIP	+2.26%	+1.02%	409 M
+Titan Machinery Inc. - TITN	-2.26%	-5.9%	402 M
+Red Cat Holdings, Inc. - RCAT	-2.25%	-4.27%	1,56 Md
+Blackbaud, Inc. - BLKB	+2.24%	-2.4%	1,98 Md
+REX American Resources Corporation - REX	-2.24%	+1.78%	1,45 Md
+Asbury Automotive Group, Inc. - ABG	-2.21%	-1.83%	3,66 Md
+AtriCure, Inc. - ATRC	+2.21%	+6.54%	2,33 Md
+Gossamer Bio, Inc. - GOSS	+2.21%	-21.29%	69,95 M
+Sonos, Inc. - SONO	+2.2%	+4.78%	1,87 Md
+Apogee Enterprises, Inc. - APOG	-2.2%	-4.8%	861 M
+Monopar Therapeutics Inc. - MNPR	+2.2%	+4.01%	799 M
+ACRES Commercial Realty Corp. - ACR	+2.2%	+5.25%	105 M
+Cinemark Holdings, Inc. - CNK	-2.19%	+0.11%	4,21 Md
+Badger Meter, Inc. - BMI	-2.18%	-7.22%	3,65 Md
+Lionsgate Studios Corp. - LION	-2.18%	-1.52%	3,48 Md
+Extreme Networks, Inc. - EXTR	-2.18%	-0.63%	3,1 Md
+MGP Ingredients, Inc. - MGPI	-2.18%	-4.74%	375 M
+Protalix BioTherapeutics, Inc. - PLX	+2.18%	-3.7%	189 M
+Quantum-Si incorporated - QSI	-2.18%	-11.24%	159 M
+DHT Holdings, Inc. - DHT	+2.17%	+6.1%	3,11 Md
+NETGEAR, Inc. - NTGR	-2.17%	-7.25%	601 M
+Citizens Financial Services, Inc. - CZFS	+2.17%	+1.68%	402 M
+Dave & Buster's Entertainment, Inc. - PLAY	-2.17%	-1%	345 M
+Voyager Therapeutics, Inc. - VYGR	+2.17%	+3.12%	203 M
+Silvercrest Asset Management Group Inc. - SAMG	+2.17%	+3.49%	81,19 M
+Green Brick Partners, Inc. - GRBK	-2.16%	-3.16%	2,98 Md
+NPK International Inc. - NPKI	-2.16%	+1.16%	1,19 Md
+OPKO Health, Inc. - OPK	+0%	-2.16%	1,02 Md
+Kforce Inc. - KFRC	+2.16%	+0.59%	977 M
+Jack in the Box Inc. - JACK	-2.16%	-6.33%	321 M
+Stereotaxis, Inc. - STXS	-2.16%	-6.85%	136 M
+Meritage Homes Corporation - MTH	-2.15%	-4.25%	4,61 Md
+Cushman & Wakefield Limited - CWK	-2.15%	+2.47%	3,32 Md
+Upstart Holdings, Inc. - UPST	-2.15%	-2.61%	2,83 Md
+Boise Cascade Company - BCC	-2.15%	-6.26%	2,8 Md
+Central Garden & Pet Company - CENT	+2.15%	+0.32%	2,47 Md
+Mineralys Therapeutics, Inc. - MLYS	+2.15%	-2.63%	2,35 Md
+ADMA Biologics, Inc. - ADMA	+2.14%	-3.69%	2,14 Md
+WEBTOON Entertainment Inc. - WBTN	-2.14%	-6.3%	1,12 Md
+National Presto Industries, Inc. - NPK	+2.14%	+6.53%	1,05 Md
+Gyre Therapeutics, Inc. - GYRE	+2.14%	+0.6%	740 M
+W&T Offshore, Inc. - WTI	+2.13%	+0.52%	578 M
+Impinj, Inc. - PI	-2.12%	-3.49%	5,14 Md
+Axogen, Inc. - AXGN	+2.12%	+3.53%	2,7 Md
+Hawaiian Electric Industries, Inc. - HE	-2.12%	-2.45%	2 Md
+Perpetua Resources Corp. - PPTA	-2.1%	-6.47%	2,98 Md
+Helen of Troy Limited - HELE	+2.1%	-1.84%	669 M
+Leggett & Platt, Incorporated - LEG	-2.09%	-1.78%	1,28 Md
+Flowco Holdings Inc. - FLOC	-2.09%	-1.46%	1,01 Md
+Sabre Corporation - SABR	-2.09%	+6.03%	852 M
+Lightbridge Corporation - LTBR	-2.09%	-11.92%	281 M
+Zeta Global Holdings Corp. - ZETA	-2.08%	+0%	7,09 Md
+Visteon Corporation - VC	-2.08%	-0.59%	2,82 Md
+Innovex International, Inc. - INVX	-2.08%	+0.03%	2,11 Md
+Neonode Inc. - NEON	-2.08%	-11.21%	14,6 M
+Broadstone Net Lease, Inc. - BNL	-2.07%	+0.63%	3,99 Md
+Oil States International, Inc. - OIS	-2.07%	+1.7%	541 M
+Medallion Financial Corp. - MFIN	+2.07%	+2.72%	253 M
+TTEC Holdings, Inc. - TTEC	-2.07%	-17.92%	69,94 M
+Vera Therapeutics, Inc. - VERA	+2.06%	+6.57%	2,33 Md
+ClearPoint Neuro, Inc. - CLPT	-2.06%	+1.88%	463 M
+The Chefs' Warehouse, Inc. - CHEF	-2.05%	-0.92%	4,42 Md
+Crescent Energy Company - CRGY	+2.05%	+4.27%	4,28 Md
+Huron Consulting Group Inc. - HURN	+2.05%	-0.9%	2,25 Md
+Artivion, Inc. - AORT	+2.05%	+1.8%	1,41 Md
+Accel Entertainment, Inc. - ACEL	-2.05%	-2.53%	969 M
+Timberland Bancorp, Inc. - TSBK	+2.05%	+2.59%	364 M
+Conduent Incorporated - CNDT	-2.05%	-9.49%	222 M
+SIGA Technologies, Inc. - SIGA	+2.05%	+3.82%	215 M
+WM Technology, Inc. - MAPS	+2.05%	-1.64%	45,92 M
+OneSpaWorld Holdings Limited - OSW	-2.04%	+0.73%	2,66 Md
+NexPoint Residential Trust, Inc. - NXRT	-2.04%	-4.86%	600 M
+Super Group (SGHC) Limited - SGHC	-2.03%	+0%	6,51 Md
+Installed Building Products, Inc. - IBP	-2.03%	+0%	6,3 Md
+Definium Therapeutics, Inc. - DFTX	+2.03%	+0%	6,21 Md
+Blend Labs, Inc. - BLND	-2.03%	+0.69%	343 M
+The Eastern Company - EML	-2.03%	+0.74%	148 M
+SITE Centers Corp. - SITC	+2.02%	+2.36%	159 M
+Cardiff Oncology, Inc. - CRDF	-2.01%	-15.61%	68,93 M
+Brookfield Business Corporation - BBUC	-2%	-20.93%	2,21 Md
+Arbor Realty Trust, Inc. - ABR	-2%	-8.41%	914 M
+Bright Minds Biosciences Inc. - DRUG	+0%	+2%	814 M
+TG Therapeutics, Inc. - TGTX	+1.99%	+0%	7,13 Md
+Franklin Electric Co., Inc. - FELE	-1.99%	-5.44%	4,51 Md
+LivaNova PLC - LIVN	-1.99%	+1.63%	4,4 Md
+Exponent, Inc. - EXPO	+1.99%	-1.23%	3,21 Md
+Stepan Company - SCL	-1.99%	-2.49%	1,44 Md
+Ategrity Specialty Insurance Company Holdings - ASIC	+1.99%	-1.8%	1,18 Md
+PCB Bancorp - PCB	+1.99%	+1.99%	400 M
+Virginia National Bankshares Corporation - VABK	+1.99%	+0.11%	256 M
+Banc of California, Inc. - BANC	-1.98%	-0.97%	3,06 Md
+The Goodyear Tire & Rubber Company - GT	-1.98%	-2.63%	1,71 Md
+Nextdoor Holdings, Inc. - NXDR	-1.98%	-7.14%	956 M
+Kronos Worldwide, Inc. - KRO	-1.98%	-5.26%	913 M
+PennyMac Mortgage Investment Trust - PMT	-1.98%	-0.21%	822 M
+Beam Therapeutics Inc. - BEAM	-1.96%	-1.04%	2,66 Md
+Lindsay Corporation - LNN	-1.96%	-2.77%	1,14 Md
+Latham Group, Inc. - SWIM	-1.96%	-7.91%	822 M
+Build-A-Bear Workshop, Inc. - BBW	-1.96%	+1.63%	457 M
+Trevi Therapeutics, Inc. - TRVI	+1.95%	+5.84%	2,68 Md
+Triumph Financial, Inc. - TFIN	-1.95%	-0.1%	1,82 Md
+Esquire Financial Holdings, Inc. - ESQ	-1.95%	-8.46%	1,43 Md
+Perdoceo Education Corporation - PRDO	+1.94%	+4.55%	2,04 Md
+Tennant Company - TNC	-1.94%	-0.09%	1,13 Md
+BARK, Inc. - BARK	-1.94%	-5.78%	91,24 M
+C&F Financial Corporation - CFFI	+1.93%	+2.42%	285 M
+Inogen, Inc. - INGN	-1.93%	-5.08%	149 M
+Magnera Corporation - MAGN	+1.92%	-1.85%	438 M
+Ribbon Communications Inc. - RBBN	-1.92%	+2.51%	365 M
+The Chemours Company - CC	-1.91%	+4.19%	2,32 Md
+Prothena Corporation plc - PRTA	-1.91%	-5.53%	447 M
+loanDepot, Inc. - LDI	-1.91%	+0.65%	199 M
+KULR Technology Group, Inc. - KULR	-1.91%	-8.21%	119 M
+Ispire Technology Inc. - ISPR	-1.91%	-11.49%	88,4 M
+Par Pacific Holdings, Inc. - PARR	-1.9%	+6.68%	4,03 Md
+Mitek Systems, Inc. - MITK	-1.89%	-1.84%	820 M
+Orthofix Medical Inc. - OFIX	+1.89%	-0.97%	416 M
+Getty Images Holdings, Inc. - GETY	-1.89%	-6.01%	114 M
+Uranium Energy Corp. - UEC	-1.88%	-4.36%	5,42 Md
+Five9, Inc. - FIVN	+1.88%	-0.55%	2,42 Md
+Oceaneering International, Inc. - OII	-1.87%	+4.61%	5,29 Md
+IBEX Limited - IBEX	+1.87%	-3.41%	475 M
+MediWound Ltd. - MDWD	+1.87%	-2.08%	176 M
+Standex International Corporation - SXI	-1.86%	-2.03%	3,89 Md
+The Baldwin Insurance Group, Inc. - BWIN	-1.85%	+1.48%	2,92 Md
+Resideo Technologies, Inc. - REZI	+1.84%	-13.28%	3,19 Md
+Winmark Corporation - WINA	-1.84%	-7.2%	1,23 Md
+First Internet Bancorp - INBK	+1.84%	+0.34%	257 M
+PriceSmart, Inc. - PSMT	-1.83%	+2.22%	5,32 Md
+HA Sustainable Infrastructure Capital, Inc. - HASI	-1.83%	+0.68%	5,29 Md
+BigBear.ai Holdings, Inc. - BBAI	-1.83%	-3.6%	1,5 Md
+Climb Global Solutions, Inc. - CLMB	+1.83%	+2.2%	521 M
+Kaltura, Inc. - KLTR	+1.83%	+2.45%	255 M
+Albany International Corp. - AIN	-1.82%	-0.48%	1,78 Md
+Compass Diversified - CODI	-1.82%	-3.57%	894 M
+Harmony Biosciences Holdings, Inc. - HRMY	+1.81%	-1.75%	2,26 Md
+Knife River Corporation - KNF	-1.8%	-3.96%	3,72 Md
+Stitch Fix, Inc. - SFIX	-1.8%	-12.57%	436 M
+Outdoor Holding Company - POWW	+1.8%	-2.59%	262 M
+Sunrise Realty Trust, Inc. - SUNS	+1.8%	+5.47%	107 M
+Dana Incorporated - DAN	-1.79%	+1.28%	3,31 Md
+National Vision Holdings, Inc. - EYE	+1.79%	-14.78%	1,49 Md
+Azenta, Inc. - AZTA	-1.79%	-1.23%	1,44 Md
+Protara Therapeutics, Inc. - TARA	+0%	+1.79%	235 M
+McGrath RentCorp - MGRC	-1.78%	-1.65%	2,9 Md
+Rapid7, Inc. - RPD	+1.78%	-5.9%	849 M
+XCF Global, Inc. - SAFX	-1.78%	-0.79%	140 M
+EverCommerce Inc. - EVCM	-1.77%	+0.6%	1,76 Md
+Marcus & Millichap, Inc. - MMI	+1.77%	+1.35%	1,2 Md
+Safehold Inc. - SAFE	-1.77%	-2.09%	1,05 Md
+Clear Secure, Inc. - YOU	+1.76%	-7.6%	4,59 Md
+M/I Homes, Inc. - MHO	-1.76%	-2.46%	3,76 Md
+Ethan Allen Interiors Inc. - ETD	-1.76%	-5.49%	569 M
+Rocket Pharmaceuticals, Inc. - RCKT	-1.76%	-4.57%	367 M
+Motorcar Parts of America, Inc. - MPAA	-1.76%	-5.7%	222 M
+C3.ai, Inc. - AI	+1.75%	-7.15%	1,53 Md
+Forestar Group Inc. - FOR	-1.75%	-1.48%	1,46 Md
+Navient Corporation - NAVI	-1.75%	+5.39%	844 M
+HealthStream, Inc. - HSTM	+1.75%	+0.53%	834 M
+Natural Gas Services Group, Inc. - NGS	-1.75%	+2.2%	485 M
+ThredUp Inc. - TDUP	-1.75%	-10.51%	369 M
+U.S. Gold Corp. - USAU	-1.75%	-4.13%	241 M
+Independence Realty Trust, Inc. - IRT	-1.74%	-1.62%	3,85 Md
+Werner Enterprises, Inc. - WERN	-1.74%	+5.49%	2,3 Md
+First Western Financial, Inc. - MYFW	+1.74%	+2.98%	314 M
+Limoneira Company - LMNR	+1.74%	+0.29%	254 M
+ICF International, Inc. - ICFI	+1.73%	-2.85%	1,58 Md
+Novavax, Inc. - NVAX	-1.73%	-0.25%	1,31 Md
+Stagwell Inc. - STGW	+1.72%	-4.63%	2,16 Md
+Alignment Healthcare, Inc. - ALHC	-1.71%	+0.23%	2,74 Md
+Capri Holdings Limited - CPRI	-1.7%	-7.39%	1,64 Md
+Anteris Technologies Global Corp. - AVR	+1.7%	+4.47%	934 M
+RxSight, Inc. - RXST	-1.7%	-9.52%	265 M
+Abercrombie & Fitch Co. - ANF	-1.69%	-12.37%	4,59 Md
+Pulse Biosciences, Inc. - PLSE	-1.69%	+3.6%	3,28 Md
+iHeartMedia, Inc. - IHRT	+1.69%	+2.56%	498 M
+Lument Finance Trust, Inc. - LFT	-1.68%	-15.91%	30,96 M
+Navan, Inc. - NAVN	+1.67%	+0%	7,43 Md
+Axos Financial, Inc. - AX	-1.67%	-2.5%	5,54 Md
+The Joint Corp. - JYNT	+1.67%	-0.58%	116 M
+HNI Corporation - HNI	-1.66%	-4.04%	3,43 Md
+La-Z-Boy Incorporated - LZB	-1.66%	-1.71%	1,63 Md
+Willis Lease Finance Corporation - WLFC	-1.66%	+4.47%	1,21 Md
+Resources Connection, Inc. - RGP	+1.66%	+2.39%	147 M
+NovoCure Limited - NVCR	-1.65%	-2.38%	2,01 Md
+Customers Bancorp, Inc. - CUBI	-1.64%	-2.53%	2,73 Md
+Riley Exploration Permian, Inc. - REPX	+1.64%	+3.26%	835 M
+Farmland Partners Inc. - FPI	+1.64%	+2.05%	431 M
+Perma-Fix Environmental Services, Inc. - PESI	-1.64%	-0.63%	368 M
+Funko, Inc. - FNKO	+1.64%	+4.38%	347 M
+BayCom Corp - BCML	+1.63%	-0.48%	337 M
+StoneCo Ltd. - STNE	-1.62%	-8.43%	2,1 Md
+Alamo Group Inc. - ALG	-1.62%	-6.18%	1,94 Md
+Healthcare Services Group, Inc. - HCSG	+1.62%	+4.68%	1,51 Md
+Caledonia Mining Corporation Plc - CMCL	-1.62%	+0.7%	446 M
+NeoGenomics, Inc. - NEO	-1.61%	-3.81%	2,04 Md
+Nordic American Tankers Limited - NAT	+1.61%	+12.32%	1,47 Md
+J&J Snack Foods Corp. - JJSF	+1.6%	-1.46%	1,66 Md
+Montauk Renewables, Inc. - MNTK	-1.6%	+1.66%	264 M
+JELD-WEN Holding, Inc. - JELD	-1.6%	-2.65%	160 M
+Diebold Nixdorf, Incorporated - DBD	-1.59%	-3.14%	2,33 Md
+Live Oak Bancshares, Inc. - LOB	-1.59%	-0.42%	1,97 Md
+Infinity Natural Resources, Inc. - INR	+1.59%	+0.36%	262 M
+Eventbrite, Inc. - EVEX	+1.58%	+0%	453 M
+Signet Jewelers Limited - SIG	-1.57%	-10.52%	3,33 Md
+Supernus Pharmaceuticals, Inc. - SUPN	+1.57%	+4.59%	2,85 Md
+Via Transportation, Inc. - VIA	-1.57%	+0.64%	2,04 Md
+Strategic Education, Inc. - STRA	+1.57%	+2.48%	1,8 Md
+Park Aerospace Corp. - PKE	-1.57%	-1.52%	803 M
+NACCO Industries, Inc. - NC	+1.57%	+3.87%	318 M
+OraSure Technologies, Inc. - OSUR	-1.57%	-3.35%	259 M
+Domo, Inc. - DOMO	-1.57%	-4.34%	169 M
+Sunstone Hotel Investors, Inc. - SHO	+1.56%	+3.95%	2,06 Md
+MasterBrand, Inc. - MBC	-1.56%	-4.01%	1,8 Md
+Borr Drilling Limited - BORR	-1.56%	+3.99%	1,37 Md
+NCR Voyix Corporation - VYX	-1.56%	-5.84%	1,05 Md
+Carter Bankshares, Inc. - CARE	-1.56%	-1.5%	699 M
+LCNB Corp. - LCNB	+1.56%	+2.12%	288 M
+Avista Corporation - AVA	-1.54%	+0%	3,22 Md
+Vericel Corporation - VCEL	+1.54%	-0.2%	2,27 Md
+Enerpac Tool Group Corp. - EPAC	-1.54%	-2.01%	1,87 Md
+Liberty Latin America Ltd. - LILA	-1.53%	-2.22%	1,63 Md
+Collegium Pharmaceutical, Inc. - COLL	+1.53%	+9.7%	928 M
+Satellogic Inc. - SATL	-1.53%	+0.87%	882 M
+Transcontinental Realty Investors, Inc. - TCI	+1.53%	-0.8%	315 M
+RCM Technologies, Inc. - RCMT	+1.53%	+43.08%	292 M
+Sound Financial Bancorp, Inc. - SFBC	+1.53%	+1.25%	120 M
+Otter Tail Corporation - OTTR	-1.52%	-3.25%	3,83 Md
+Helix Energy Solutions Group, Inc. - HLX	-1.52%	+1.86%	1,53 Md
+Orchid Island Capital, Inc. - ORC	+0%	+1.52%	1,33 Md
+Sun Country, Inc. - SUGP	-1.52%	+12.37%	876 M
+Byrna Technologies Inc. - BYRN	-1.52%	-16.67%	88,5 M
+LifeStance Health Group, Inc. - LFST	-1.51%	+7.48%	4,72 Md
+SPS Commerce, Inc. - SPSC	+1.51%	+3.3%	2,79 Md
+Skyward Specialty Insurance Group, Inc. - SKWD	+1.51%	-5.22%	2,59 Md
+agilon health, inc. - AGL	-1.51%	+10.43%	1,6 Md
+The Greenbrier Companies, Inc. - GBX	-1.51%	-2.25%	1,4 Md
+Pure Cycle Corporation - PCYO	+1.51%	+0.35%	276 M
+SB Financial Group, Inc. - SBFG	-1.51%	-2.02%	167 M
+LifeMD, Inc. - LFMD	-1.51%	-3.25%	158 M
+Delek US Holdings, Inc. - DK	+1.5%	+6.69%	4,18 Md
+Interparfums, Inc. - IPAR	+1.5%	-5.48%	3,63 Md
+Progyny, Inc. - PGNY	+1.5%	-3.24%	1,97 Md
+Eastman Kodak Company - KODK	-1.5%	-2.58%	961 M
+Cryoport, Inc. - CYRX	-1.5%	+0.94%	764 M
+Chesapeake Utilities Corporation - CPK	+1.49%	+2.25%	3,29 Md
+NI Holdings, Inc. - NODK	+0%	-1.49%	311 M
+Acme United Corporation - ACU	+1.49%	+9.56%	241 M
+ACM Research, Inc. - ACMR	-1.48%	+5.57%	5,88 Md
+Astrana Health, Inc. - ASTH	-1.48%	+13.57%	2 Md
+Cytek Biosciences, Inc. - CTKB	-1.48%	-1.48%	607 M
+Shoe Station Group Inc. - SHOE	-1.48%	-3.11%	415 M
+TPG Mortgage Investment Trust, Inc. - MITT	-1.48%	-1.19%	211 M
+Waystar Holding Corp. - WAY	-1.46%	+0.08%	4,66 Md
+World Kinect Corporation - WKC	+1.46%	-1.85%	1,85 Md
+Cracker Barrel Old Country Store, Inc. - CBRL	-1.46%	+3.84%	1,3 Md
+Seneca Foods Corporation - SENEA	+1.46%	+4.26%	1,3 Md
+Redwood Trust, Inc. - RWT	-1.46%	+1.07%	594 M
+Peoples Bancorp of North Carolina, Inc. - PEBK	+1.46%	+2.47%	241 M
+National Beverage Corp. - FIZZ	+1.45%	+2.11%	2,95 Md
+Benitec Biopharma Inc. - BNTC	-1.45%	-4.45%	442 M
+Fidelity D & D Bancorp, Inc. - FDBC	+1.45%	+1.68%	321 M
+Archrock, Inc. - AROC	-1.44%	+0%	5,98 Md
+iRhythm Holdings, Inc. - IRTC	-1.44%	-5.44%	3,8 Md
+V2X, Inc. - VVX	-1.44%	+1.14%	2,55 Md
+Ziff Davis, Inc. - ZD	+1.44%	+2.98%	1,89 Md
+BioLife Solutions, Inc. - BLFS	-1.44%	+0.34%	1,71 Md
+Ligand Pharmaceuticals Incorporated - LGND	-1.43%	-0.4%	5,73 Md
+Forrester Research, Inc. - FORR	+1.43%	-4.4%	215 M
+Encore Capital Group, Inc. - ECPG	-1.42%	+9.33%	2,17 Md
+FB Bancorp, Inc. - FBLA	+1.42%	+0.38%	229 M
+Magnite, Inc. - MGNI	+1.41%	+0.95%	3,52 Md
+Turning Point Brands, Inc. - TPB	+1.41%	-1.79%	1,73 Md
+Editas Medicine, Inc. - EDIT	+1.41%	-2.37%	442 M
+Superior Group of Companies, Inc. - SGC	-1.41%	-1.8%	200 M
+SANUWAVE Health, Inc. - SNWV	+1.41%	-8.55%	43,27 M
+Patria Investments Limited - PAX	-1.4%	+0.54%	1,82 Md
+Jefferson Capital, Inc. - JCAP	-1.4%	+10.63%	1,34 Md
+Heritage Insurance Holdings, Inc. - HRTG	-1.4%	+4.69%	973 M
+Edgewell Personal Care Company - EPC	+1.39%	-0.56%	1,31 Md
+Envela Corporation - ELA	-1.39%	-2.99%	405 M
+FutureFuel Corp. - FF	-1.39%	-11.15%	248 M
+Black Rock Coffee Bar, Inc. - BRCB	-1.39%	+12.74%	173 M
+Innoviva, Inc. - INVA	+1.38%	+2.41%	1,54 Md
+Oil-Dri Corporation of America - ODC	-1.38%	+4.37%	1,32 Md
+Donnelley Financial Solutions, Inc. - DFIN	+1.38%	+2.63%	1,19 Md
+Universal Logistics Holdings, Inc. - ULH	-1.38%	+1%	508 M
+National Energy Services Reunited Corp. - NESR	-1.37%	-2%	3,56 Md
+Middlesex Water Company - MSEX	+1.37%	+0.92%	1,11 Md
+PagerDuty, Inc. - PD	+1.37%	-0.08%	915 M
+SBC Medical Group Holdings Incorporated - SBC	-1.37%	+12.5%	370 M
+DNOW Inc. - DNOW	-1.36%	-4.38%	2,88 Md
+GeneDx Holdings Corp. - WGS	-1.36%	-6.61%	2,28 Md
+Sana Biotechnology, Inc. - SANA	-1.36%	-4.22%	1,09 Md
+Fox Factory Holding Corp. - FOXF	+1.36%	-3.3%	876 M
+National Bankshares, Inc. - NKSH	+1.36%	+2.25%	275 M
+RGC Resources, Inc. - RGCO	+1.36%	+1.36%	225 M
+Concentra Group Holdings Parent, Inc. - CON	-1.35%	+6.12%	4,47 Md
+Sylvamo Corporation - SLVM	+1.35%	-7.12%	1,47 Md
+Pulmonx Corporation - LUNG	+1.35%	+0%	97,06 M
+ONE Gas, Inc. - OGS	+1.34%	+1.82%	5,09 Md
+GRAIL, Inc. - GRAL	+1.34%	-6.08%	3,17 Md
+Summit Hotel Properties, Inc. - INN	+1.34%	-0.17%	632 M
+Vital Farms, Inc. - VITL	-1.34%	-4.76%	473 M
+Angel Oak Mortgage REIT, Inc. - AOMR	-1.34%	-1.78%	205 M
+Playtika Holding Corp. - PLTK	-1.33%	-16.48%	851 M
+NeuroPace, Inc. - NPCE	+1.33%	-3.85%	497 M
+Oportun Financial Corporation - OPRT	-1.33%	-2.37%	341 M
+Inspired Entertainment, Inc. - INSE	-1.33%	-4.49%	157 M
+PennyMac Financial Services, Inc. - PFSI	-1.32%	-1.68%	3,91 Md
+FirstSun Capital Bancorp - FSUN	-1.32%	-0.42%	1,88 Md
+TriCo Bancshares - TCBK	-1.32%	-0.74%	1,81 Md
+BrightView Holdings, Inc. - BV	+1.32%	+1.77%	1,06 Md
+Xenon Pharmaceuticals Inc. - XENE	+1.31%	+0%	6,12 Md
+Mativ Holdings, Inc. - MATV	-1.31%	-5.7%	666 M
+Holley Inc. - HLLY	+1.31%	-0.96%	371 M
+Turtle Beach Corporation - TBCH	+1.31%	-3.73%	222 M
+Medifast, Inc. - MED	-1.31%	-3.09%	117 M
+Laureate Education, Inc. - LAUR	+1.3%	+4.14%	5,26 Md
+SL Green Realty Corp. - SLG	+1.3%	+1.96%	4,03 Md
+ABM Industries Incorporated - ABM	-1.3%	-2.44%	2,76 Md
+HCI Group, Inc. - HCI	+1.3%	+0.36%	2,3 Md
+United Parks & Resorts Inc. - PRKS	+1.3%	+2.02%	2,04 Md
+Greenlight Capital Re, Ltd. - GLRE	+1.3%	+1.17%	509 M
+Skillsoft Corp. - SKIL	-1.3%	-19.02%	68,33 M
+Glacier Bancorp, Inc. - GBCI	-1.29%	+0%	6,38 Md
+GATX Corporation - GATX	-1.29%	+0%	6,3 Md
+Flagstar Bank, National Association - FLG	-1.29%	-2.61%	5,74 Md
+Liquidity Services, Inc. - LQDT	+1.29%	+3.54%	1,36 Md
+Upbound Group, Inc. - UPBD	-1.29%	+0.37%	1,12 Md
+Camping World Holdings, Inc. - CWH	+1.29%	-0.63%	402 M
+Lindblad Expeditions Holdings, Inc. - LIND	-1.28%	-1.49%	2,12 Md
+Willdan Group, Inc. - WLDN	+1.28%	+0.69%	1,29 Md
+Varonis Systems, Inc. - VRNS	+1.27%	+3.82%	5,02 Md
+CarGurus, Inc. - CARG	+1.26%	+0.11%	3,23 Md
+Interface, Inc. - TILE	+1.26%	-0.05%	2,23 Md
+LTC Properties, Inc. - LTC	-1.26%	+4.96%	2,16 Md
+Amalgamated Financial Corp. - AMAL	-1.26%	+0.34%	1,5 Md
+Yelp Inc. - YELP	+1.26%	-1.06%	1,27 Md
+Amneal Pharmaceuticals, Inc. - AMRX	-1.25%	+6.37%	5,81 Md
+Texas Capital Bancshares, Inc. - TCBI	-1.25%	-0.52%	4,34 Md
+Acadian Asset Management Inc. - AAMI	-1.25%	+0.31%	3,26 Md
+Worthington Enterprises, Inc. - WOR	-1.25%	-0.11%	2,79 Md
+Grindr Inc. - GRND	-1.25%	-2.59%	2,77 Md
+Banner Corporation - BANR	-1.25%	-0.04%	2,47 Md
+Century Communities, Inc. - CCS	-1.25%	-2.1%	1,97 Md
+Krispy Kreme, Inc. - DNUT	+1.25%	+4.85%	562 M
+NLI Holdings, Inc. - NL	+1.25%	+1.56%	318 M
+Cogent Biosciences, Inc. - COGT	-1.24%	+0%	6,49 Md
+Patrick Industries, Inc. - PATK	-1.24%	-4.22%	2,69 Md
+AMC Global Media Inc. - AMCX	-1.24%	+1.27%	493 M
+Global Water Resources, Inc. - GWRS	-1.24%	+15.24%	253 M
+Keros Therapeutics, Inc. - KROS	+1.24%	-0.28%	210 M
+LENSAR, Inc. - LNSR	+1.24%	+35.82%	101 M
+UFP Industries, Inc. - UFPI	-1.23%	-6.05%	4,8 Md
+Scorpio Tankers Inc. - STNG	-1.23%	+6.94%	3,61 Md
+Biohaven Ltd. - BHVN	-1.23%	-0.21%	2,05 Md
+Coastal Financial Corporation - CCB	+1.23%	-4.47%	757 M
+The E.W. Scripps Company - SSP	+1.23%	-0.3%	306 M
+EVI Industries, Inc. - EVI	+1.23%	+7.76%	202 M
+Traeger, Inc. - COOK	+1.23%	-11.73%	157 M
+Associated Banc-Corp - ASB	-1.22%	+0%	5,91 Md
+Rapport Therapeutics, Inc. - RAPP	+1.22%	+0.39%	2,35 Md
+Innovative Industrial Properties, Inc. - IIPR	-1.22%	-4.44%	1,52 Md
+PHINIA Inc. - PHIN	-1.21%	-1.63%	2,7 Md
+German American Bancorp, Inc. - GABC	+0%	+1.21%	1,91 Md
+Revolve Group, Inc. - RVLV	-1.21%	-3.91%	1,63 Md
+Cullinan Therapeutics, Inc. - CGEM	+1.21%	+6.16%	1,34 Md
+Douglas Dynamics, Inc. - PLOW	-1.21%	-2.29%	957 M
+MFA Financial, Inc. - MFA	-1.21%	-1.96%	910 M
+Abacus Global Management, Inc. - ABX	-1.21%	+1.01%	881 M
+Phreesia, Inc. - PHR	-1.21%	-6.76%	707 M
+Lucid Diagnostics Inc. - LUCD	+1.21%	+2.93%	189 M
+LeMaitre Vascular, Inc. - LMAT	-1.2%	-1.59%	1,86 Md
+The Simply Good Foods Company - SMPL	+1.2%	+1.01%	970 M
+4D Molecular Therapeutics, Inc. - FDMT	+1.2%	+28.33%	813 M
+Designer Brands Inc. - DBI	+1.2%	-7.11%	299 M
+Citizens Community Bancorp, Inc. - CZWI	+1.2%	+3.22%	204 M
+Acushnet Holdings Corp. - GOLF	-1.19%	-0.87%	5,23 Md
+Helmerich & Payne, Inc. - HP	-1.19%	+3.83%	4,42 Md
+HBT Financial, Inc. - HBT	-1.19%	+0.86%	1,33 Md
+Miami International Holdings, Inc. - MIAX	-1.18%	-0.97%	4,16 Md
+Renasant Corporation - RNST	-1.18%	-0.77%	3,89 Md
+American States Water Company - AWR	+1.18%	+1.56%	3,52 Md
+Carriage Services, Inc. - CSV	-1.18%	+2.11%	546 M
+ACCO Brands Corporation - ACCO	+1.18%	-0.23%	395 M
+PACS Group, Inc. - PACS	-1.17%	+0%	6,94 Md
+Northwest Natural Holding Company - NWN	+1.17%	+1.53%	2,15 Md
+AnaptysBio, Inc. - ANAB	-1.17%	+1.94%	1,75 Md
+Pangaea Logistics Solutions Ltd. - PANL	+1.17%	+12.3%	508 M
+B&G Foods, Inc. - BGS	+0%	+1.17%	280 M
+Spire Global, Inc. - SPIR	+1.16%	-6.21%	544 M
+El Pollo Loco Holdings, Inc. - LOCO	-1.16%	+3.03%	465 M
+Apartment Investment and Management Company - APA	+0%	+1.16%	377 M
+Smith-Midland Corporation - SMID	-1.16%	+1.95%	150 M
+Travelzoo - TZOO	+1.16%	-1.69%	71,42 M
+DXP Enterprises, Inc. - DXPE	-1.15%	+1.34%	3,07 Md
+Central Pacific Financial Corp. - CPF	-1.15%	-1.89%	977 M
+Ironwood Pharmaceuticals, Inc. - IRWD	-1.15%	+0.23%	712 M
+Unity Bancorp, Inc. - UNTY	-1.15%	-0.86%	604 M
+Ranpak Holdings Corp. - PACK	-1.15%	-3.72%	444 M
+Tejon Ranch Co. - TRC	-1.15%	-1.03%	443 M
+Atea Pharmaceuticals, Inc. - AVIR	+1.15%	+4.55%	423 M
+BKV Corporation - BKV	+1.14%	+0.53%	2,91 Md
+ANI Pharmaceuticals, Inc. - ANIP	+1.14%	+3.14%	1,65 Md
+Design Therapeutics, Inc. - DSGN	+1.13%	+4.45%	956 M
+Natural Grocers by Vitamin Cottage, Inc. - NGVC	+0%	+1.13%	642 M
+Finward Bancorp - FNWD	-1.13%	-0.58%	193 M
+Federal Agricultural Mortgage Corporation - AGM	-1.12%	-2.36%	2,42 Md
+FIGS, Inc. - FIGS	-1.12%	-0.77%	2,35 Md
+ScanSource, Inc. - SCSC	+1.12%	+0.85%	1,06 Md
+Reservoir Media, Inc. - RSVR	-1.12%	-2.12%	639 M
+NexPoint Real Estate Finance, Inc. - NREF	+1.12%	+3.31%	324 M
+Eledon Pharmaceuticals, Inc. - ELDN	+1.12%	-3.47%	294 M
+First Interstate BancSystem, Inc. - FIBK	-1.11%	+1.16%	3,67 Md
+First Financial Bancorp. - FFBC	-1.11%	-0.62%	3,55 Md
+Global Industrial Company - GIC	+1.11%	-0.79%	1,49 Md
+Olema Pharmaceuticals, Inc. - OLMA	-1.11%	+2.11%	932 M
+Delcath Systems, Inc. - DCTH	-1.11%	-2.09%	585 M
+Treace Medical Concepts, Inc. - TMCI	-1.11%	-6.12%	289 M
+Union Bankshares, Inc. - UNB	-1.11%	-0.82%	119 M
+PLAYSTUDIOS, Inc. - MYPS	-1.11%	-19.05%	61,26 M
+Archer Aviation Inc. - ACHR	-1.1%	-6.92%	4,87 Md
+Acadia Realty Trust - AKR	+1.1%	+2.13%	2,89 Md
+NRC Health - NRC	+1.1%	+2.95%	487 M
+Essential Properties Realty Trust, Inc. - EPRT	-1.09%	+0%	6,66 Md
+Simmons First National Corporation - SFNC	-1.09%	-0.08%	3,42 Md
