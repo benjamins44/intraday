@@ -57,6 +57,20 @@ export class Trading212BrokerAdapter implements ExecutionBrokerPort {
   }
 
   /**
+   * Synchronise en direct le cash réel du compte Trading 212 avec la BDD locale SQLite
+   */
+  async getLiveCash(): Promise<{ availableCash: number; totalCapital: number }> {
+    const t212Cash = await this.getT212CashInUSD();
+    try {
+      await this.positionRepo.updatePortfolioCash(t212Cash.availableCashUSD);
+    } catch {}
+    return {
+      availableCash: t212Cash.availableCashUSD,
+      totalCapital: t212Cash.totalValueUSD
+    };
+  }
+
+  /**
    * Ouvre une position : Passe l'ordre d'achat Market chez Trading 212 ET enregistre en BDD SQLite
    */
   async openBracketPosition(

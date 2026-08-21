@@ -21,4 +21,6 @@ export interface ExecutionBrokerPort {
   ): Promise<Position>;
 
   squareOffAllOpenPositions(currentPrices: Map<string, number>): Promise<Position[]>;
+
+  getLiveCash?(): Promise<{ availableCash: number; totalCapital: number }>;
 }

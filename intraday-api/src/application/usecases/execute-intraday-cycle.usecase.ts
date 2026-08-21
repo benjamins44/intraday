@@ -27,7 +27,19 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
   async execute(currentTime = new Date(), forceRun = false): Promise<IntradayCycleResult> {
     const startTime = Date.now();
     const marketStatus = MarketHoursService.getMarketStatus(currentTime);
-    const portfolioCash = await this.positionRepo.getPortfolioCash();
+    
+    // Synchronisation en direct du cash réel avec le courtier si disponible
+    let portfolioCash = await this.positionRepo.getPortfolioCash();
+    if (this.executionBroker.getLiveCash) {
+      try {
+        const live = await this.executionBroker.getLiveCash();
+        portfolioCash = {
+          availableCash: live.availableCash,
+          totalCapital: live.totalCapital,
+          investedCash: parseFloat(Math.max(0, live.totalCapital - live.availableCash).toFixed(2))
+        };
+      } catch {}
+    }
     const openPositions = await this.positionRepo.findOpenPositions();
 
     const localTimeStr = currentTime.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -421,7 +433,9 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
         const nRisk = Math.floor(riskDollar / stopDistance);
 
         // Plafond d'allocation max : 40% du capital total ou cash disponible
-        const maxCapitalForTrade = Math.min(totalCapital * 0.40, portfolio.availableCash * 0.98, config.maxPositionCapital);
+        // Marge de sécurité de 15% (facteur 0.85) sur le cash disponible pour couvrir la réserve de volatilité exigée par Trading 212
+        const safeAvailableCash = portfolio.availableCash * 0.85;
+        const maxCapitalForTrade = Math.min(totalCapital * 0.40, safeAvailableCash, config.maxPositionCapital);
         const nMaxCapital = Math.floor(maxCapitalForTrade / entryPrice);
 
         const qty = Math.min(nRisk, config.maxPositionUnits, nMaxCapital);
@@ -430,10 +444,10 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
         const actualRiskPercent = totalCapital > 0 ? ((actualRiskDollar / totalCapital) * 100).toFixed(2) : '0';
 
         console.log(`  - Position Sizing : Capital Total=${totalCapital.toFixed(2)}$ | Risque 1% cible=${riskDollar.toFixed(2)}$ | Distance Stop=${stopDistance.toFixed(2)}$ (SL: ${stopLossPrice}$)`);
-        console.log(`  - Plafonds : N_risque=${nRisk} (${(nRisk * entryPrice).toFixed(2)}$) | N_max40%=${nMaxCapital} (Plafond 40%: ${maxCapitalForTrade.toFixed(2)}$) -> Quantité retenue: ${qty} titres @ ${entryPrice.toFixed(2)}$ (Engagé: ${allocatedCash}$)`);
+        console.log(`  - Plafonds : N_risque=${nRisk} (${(nRisk * entryPrice).toFixed(2)}$) | N_max40%=${nMaxCapital} (Cash dispo sécurisé: ${safeAvailableCash.toFixed(2)}$) -> Quantité retenue: ${qty} titres @ ${entryPrice.toFixed(2)}$ (Engagé: ${allocatedCash}$)`);
         console.log(`  - Risque réel engagé : ${actualRiskDollar}$ (${actualRiskPercent}% du capital total)`);
 
-        if (qty > 0 && allocatedCash <= portfolio.availableCash) {
+        if (qty > 0 && allocatedCash <= safeAvailableCash) {
           const matchingAsset = await this.assetRepo.findBySymbol(bestCandidate.symbol);
           const exchange = matchingAsset?.exchange || 'NASDAQ';
 

@@ -5,6 +5,10 @@ import { Position, PositionExitReason } from '../../../../domain/models/position
 export class SimulatedExecutionAdapter implements ExecutionBrokerPort {
   constructor(private positionRepo: PositionRepositoryPort) {}
 
+  async getLiveCash(): Promise<{ availableCash: number; totalCapital: number }> {
+    return this.positionRepo.getPortfolioCash();
+  }
+
   async openBracketPosition(
     symbol: string,
     exchange: string,
