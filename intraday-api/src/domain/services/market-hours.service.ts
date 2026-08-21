@@ -1,3 +1,5 @@
+import { config } from '../../config/env.config';
+
 export interface MarketStatus {
   isOpen: boolean;
   isRegularTradingHours: boolean; // 09h30 - 16h00 EST
@@ -8,6 +10,15 @@ export interface MarketStatus {
   estTimeString: string;
   dayOfWeek: number;             // 0 = Dimanche, 1 = Lundi, ..., 5 = Vendredi, 6 = Samedi
   reason?: string;
+}
+
+function parseTimeToMinutes(timeStr?: string, defaultMinutes = 0): number {
+  if (!timeStr) return defaultMinutes;
+  const parts = timeStr.split(':').map(Number);
+  if (parts.length >= 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+    return parts[0] * 60 + parts[1];
+  }
+  return defaultMinutes;
 }
 
 export class MarketHoursService {
@@ -36,11 +47,11 @@ export class MarketHoursService {
     const [hour, minute] = estTimeStr.split(':').map(Number);
     const totalMinutes = hour * 60 + minute;
 
-    const openMinutes = 9 * 60 + 30;       // 09h30 EST
-    const entryOpenMinutes = 10 * 60;      // 10h00 EST (16h00 Paris) - Début des entrées après Initial Balance
-    const squareOffMinutes = 15 * 60 + 45; // 15h45 EST
-    const closeMinutes = 16 * 60;          // 16h00 EST
-    const preMarketOpen = 4 * 60;          // 04h00 EST
+    const realOpenMinutes = parseTimeToMinutes(config.realMarketOpenEst, 9 * 60 + 30);  // 09h30 EST
+    const entryOpenMinutes = parseTimeToMinutes(config.marketOpenEst, 10 * 60);         // 10h00 EST (Configurable via MARKET_OPEN_EST)
+    const squareOffMinutes = parseTimeToMinutes(config.squareOffEst, 15 * 60 + 45);     // 15h45 EST
+    const closeMinutes = parseTimeToMinutes(config.marketCloseEst, 16 * 60);            // 16h00 EST
+    const preMarketOpen = 4 * 60;                                                       // 04h00 EST
 
     const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
 
@@ -58,10 +69,10 @@ export class MarketHoursService {
       };
     }
 
-    const isRegularTradingHours = totalMinutes >= openMinutes && totalMinutes < closeMinutes;
-    const isPreMarket = totalMinutes >= preMarketOpen && totalMinutes < openMinutes;
+    const isRegularTradingHours = totalMinutes >= realOpenMinutes && totalMinutes < closeMinutes;
+    const isPreMarket = totalMinutes >= preMarketOpen && totalMinutes < realOpenMinutes;
     const isPastSquareOff = totalMinutes >= squareOffMinutes && totalMinutes < closeMinutes;
-    const isOpeningNoise = totalMinutes >= openMinutes && totalMinutes < entryOpenMinutes;
+    const isOpeningNoise = totalMinutes >= realOpenMinutes && totalMinutes < entryOpenMinutes;
     const canOpenNewPositions = totalMinutes >= entryOpenMinutes && totalMinutes < squareOffMinutes;
 
     let reason = 'Marché ouvert (Séance régulière)';

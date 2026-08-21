@@ -15,8 +15,9 @@ export const config = {
   intradayResolution: (process.env.INTRADAY_RESOLUTION || '5') as '5' | '15',
   scoreEntryThreshold: parseInt(process.env.SCORE_ENTRY_THRESHOLD || '70', 10),
 
-  // Horaires de Marché US
-  marketOpenEst: process.env.MARKET_OPEN_EST || '09:31',
+  // Horaires de Marché US (Fuseau America/New_York)
+  marketOpenEst: process.env.MARKET_OPEN_EST || '10:00', // Début effectif des entrées de trade (16h00 Paris)
+  realMarketOpenEst: process.env.REAL_MARKET_OPEN_EST || '09:30', // Cloche d'ouverture Wall Street
   squareOffEst: process.env.SQUARE_OFF_EST || '15:45',
   marketCloseEst: process.env.MARKET_CLOSE_EST || '16:00',
 

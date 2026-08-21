@@ -30,7 +30,8 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
     const portfolioCash = await this.positionRepo.getPortfolioCash();
     const openPositions = await this.positionRepo.findOpenPositions();
 
-    console.log(`\n[Cycle 1-Min] Exécution à ${currentTime.toISOString()} | Heure NY: ${marketStatus.estTimeString} (${marketStatus.reason})`);
+    const localTimeStr = currentTime.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    console.log(`\n[Cycle 1-Min] ⏱️ Tick Cron : ${localTimeStr} (Paris) | ${marketStatus.estTimeString} (New York EST) | Statut: ${marketStatus.reason}`);
 
     // Contrôle de marché : si fermé et pas de forceRun, sortie immédiate
     if (!marketStatus.isOpen && !forceRun) {
