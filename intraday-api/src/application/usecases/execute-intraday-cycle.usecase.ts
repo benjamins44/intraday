@@ -433,8 +433,8 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
         const nRisk = Math.floor(riskDollar / stopDistance);
 
         // Plafond d'allocation max : 40% du capital total ou cash disponible
-        // Marge de sécurité de 15% (facteur 0.85) sur le cash disponible pour couvrir la réserve de volatilité exigée par Trading 212
-        const safeAvailableCash = portfolio.availableCash * 0.85;
+        // Marge de sécurité de 30% (facteur 0.70) sur le cash disponible pour couvrir la réserve de volatilité étendue (20-25%) exigée par Trading 212
+        const safeAvailableCash = portfolio.availableCash * 0.70;
         const maxCapitalForTrade = Math.min(totalCapital * 0.40, safeAvailableCash, config.maxPositionCapital);
         const nMaxCapital = Math.floor(maxCapitalForTrade / entryPrice);
 
