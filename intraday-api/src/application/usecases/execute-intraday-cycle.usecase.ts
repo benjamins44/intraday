@@ -13,6 +13,8 @@ import { config } from '../../config/env.config';
 
 import { LogRepositoryPort } from '../../domain/ports/out/log-repository.port';
 import { MarketHoursService } from '../../domain/services/market-hours.service';
+import { PostMortemTradeUseCase } from './post-mortem-trade.usecase';
+import { PreOrderAiFilterUseCase } from './pre-order-ai-filter.usecase';
 
 export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
   constructor(
@@ -21,7 +23,9 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
     private marketData: MarketDataPort,
     private executionBroker: ExecutionBrokerPort,
     private indicatorsService: CarterIndicatorsService,
-    private logRepo?: LogRepositoryPort
+    private logRepo?: LogRepositoryPort,
+    private postMortemTradeUseCase?: PostMortemTradeUseCase,
+    private preOrderAiFilterUseCase?: PreOrderAiFilterUseCase
   ) {}
 
   async execute(currentTime = new Date(), forceRun = false): Promise<IntradayCycleResult> {
@@ -101,6 +105,13 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
         prices.set(pos.symbol, q.price || pos.currentPrice);
       }
       closedPositions = await this.executionBroker.squareOffAllOpenPositions(prices);
+      if (this.postMortemTradeUseCase && config.enableAiPostMortem) {
+        for (const closed of closedPositions) {
+          this.postMortemTradeUseCase.execute(closed).catch((err) => {
+            console.error(`[Cycle 1-Min] ❌ Post-mortem error on square-off (${closed.symbol}) :`, err.message);
+          });
+        }
+      }
       const portfolio = await this.positionRepo.getPortfolioCash();
 
       return {
@@ -277,6 +288,11 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
           console.log(`[Cycle 1-Min] 🔄 Ralentissement du Momentum Squeeze détecté pour ${pos.symbol} (Couleur: ${sq5mCurrent.histColor}, Momentum: ${sq5mCurrent.momentum.toFixed(4)}) -> Sortie au Marché John Carter.`);
           const closed = await this.executionBroker.closePosition(pos.id!, curPrice, 'MOMENTUM_INVALIDATION');
           closedPositions.push(closed);
+          if (this.postMortemTradeUseCase && config.enableAiPostMortem) {
+            this.postMortemTradeUseCase.execute(closed).catch((err) => {
+              console.error(`[Cycle 1-Min] ❌ Post-mortem error on momentum exit (${closed.symbol}) :`, err.message);
+            });
+          }
           continue;
         }
       }
@@ -451,6 +467,28 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
         console.log(`  - Risque réel engagé : ${actualRiskDollar}$ (${actualRiskPercent}% du capital total)`);
 
         if (qty > 0 && allocatedCash <= safeAvailableCash) {
+          // Étape 2 (Filtre Pré-Ordre IA - AI_FEEDBACK_LOOP.md)
+          if (this.preOrderAiFilterUseCase) {
+            const aiDecision = await this.preOrderAiFilterUseCase.evaluate(bestCandidate, marketStatus.estTimeString);
+            if (!aiDecision.approve) {
+              console.warn(`[Cycle 1-Min] 🛑 ORDRE ANNULÉ par le Filtre IA Pré-Ordre sur ${bestCandidate.symbol} (Raison: ${aiDecision.reason})`);
+              return this.buildCycleResult(
+                currentTime,
+                marketStatus,
+                breadth,
+                activeOpenPositions,
+                allUniverseAssets.length,
+                scores,
+                undefined,
+                closedPositions,
+                portfolio,
+                `Ordre rejeté par le Filtre IA Pré-Ordre sur ${bestCandidate.symbol} (${aiDecision.reason})`,
+                bestCandidate,
+                startTime
+              );
+            }
+          }
+
           const matchingAsset = await this.assetRepo.findBySymbol(bestCandidate.symbol);
           const exchange = matchingAsset?.exchange || 'NASDAQ';
 

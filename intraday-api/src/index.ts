@@ -18,6 +18,13 @@ import { createHttpServer } from './infrastructure/adapters/inbound/http/server'
 import { IntradaySchedulerAdapter } from './infrastructure/adapters/inbound/cron/intraday-scheduler.adapter';
 import { Asset } from './domain/models/asset.entity';
 
+// AI & Feedback Loop (AI_FEEDBACK_LOOP.md)
+import { SqliteFeedbackRepository } from './infrastructure/adapters/outbound/database/sqlite-feedback.repository';
+import { AntigravityGeminiAdapter } from './infrastructure/adapters/outbound/ai/antigravity-gemini.adapter';
+import { PostMortemTradeUseCase } from './application/usecases/post-mortem-trade.usecase';
+import { WeeklyDigestUseCase } from './application/usecases/weekly-digest.usecase';
+import { PreOrderAiFilterUseCase } from './application/usecases/pre-order-ai-filter.usecase';
+
 async function bootstrap() {
   console.log('='.repeat(70));
   console.log(' 🚀 DÉMARRAGE DE INTRADAY-API (ARCHITECTURE HEXAGONALE - JOHN CARTER)');
@@ -43,7 +50,14 @@ async function bootstrap() {
     });
   }
 
-  // 3. Auto-seed et synchronisation complète des actifs et tickers T212
+  // 3. Adaptateurs & UseCases IA & Feedback Loop (AI_FEEDBACK_LOOP.md)
+  const feedbackRepo = new SqliteFeedbackRepository();
+  const aiAdvisor = new AntigravityGeminiAdapter();
+  const postMortemTradeUseCase = new PostMortemTradeUseCase(aiAdvisor, feedbackRepo, assetRepo);
+  const weeklyDigestUseCase = new WeeklyDigestUseCase(positionRepo, aiAdvisor, feedbackRepo);
+  const preOrderAiFilterUseCase = new PreOrderAiFilterUseCase(aiAdvisor, feedbackRepo, assetRepo);
+
+  // 4. Auto-seed et synchronisation complète des actifs et tickers T212
   const manageAssetsUseCase = new ManageAssetsUseCase(assetRepo);
   const currentAssetCount = await assetRepo.count();
   if (currentAssetCount < 1000) {
@@ -58,7 +72,9 @@ async function bootstrap() {
     marketData,
     executionBroker,
     indicatorsService,
-    logRepo
+    logRepo,
+    postMortemTradeUseCase,
+    preOrderAiFilterUseCase
   );
   const generateHotListUseCase = new GenerateHotListUseCase(assetRepo, marketData, indicatorsService, logRepo);
 
@@ -73,17 +89,22 @@ async function bootstrap() {
     executeCycleUseCase,
     generateHotListUseCase,
     marketData,
-    logRepo
+    logRepo,
+    postMortemTradeUseCase,
+    weeklyDigestUseCase,
+    feedbackRepo,
+    positionRepo
   );
 
   app.listen(config.port, () => {
     console.log(`[HTTP] Serveur Express en écoute sur http://localhost:${config.port}`);
     console.log(`  - Health Check     : GET  http://localhost:${config.port}/health`);
     console.log(`  - Liste Actifs     : GET  http://localhost:${config.port}/api/assets`);
-    console.log(`  - Ajouter Actif    : POST http://localhost:${config.port}/api/assets (Body: { symbol, name, exchange, sector?, t212Ticker? })`);
-    console.log(`  - Hot List         : GET  http://localhost:${config.port}/api/assets/hotlist`);
     console.log(`  - Positions & Cash : GET  http://localhost:${config.port}/api/positions/summary`);
-    console.log(`  - Cycle 1-Min Moteur: POST http://localhost:${config.port}/api/engine/run-cycle`);
+    console.log(`  - Cycle 1-Min      : POST http://localhost:${config.port}/api/engine/run-cycle`);
+    console.log(`  - AI Leçons RAG    : GET  http://localhost:${config.port}/api/feedback/lessons`);
+    console.log(`  - AI Post-Mortems  : GET  http://localhost:${config.port}/api/feedback/post-mortems`);
+    console.log(`  - AI Weekly Digest : POST http://localhost:${config.port}/api/feedback/weekly-digest`);
     console.log('='.repeat(70) + '\n');
   });
 }

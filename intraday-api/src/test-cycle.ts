@@ -58,3 +58,8 @@ testSingleCycle().catch((err) => {
   console.error('Erreur test :', err);
   process.exit(1);
 });
+
+testSingleCycle().catch((err) => {
+  console.error('Erreur test :', err);
+  process.exit(1);
+});

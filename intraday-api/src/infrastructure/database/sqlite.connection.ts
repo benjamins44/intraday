@@ -100,6 +100,56 @@ function initSchema(db: Database.Database) {
       duration_ms INTEGER,
       details_json TEXT
     );
+
+    CREATE TABLE IF NOT EXISTS trade_feedback_lessons (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      symbol TEXT NOT NULL,
+      sector TEXT,
+      market_cap_profile TEXT,
+      time_slot TEXT,
+      failure_category TEXT,
+      key_lesson TEXT NOT NULL,
+      suggested_rule_update TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      usage_count INTEGER DEFAULT 0
+    );
+
+    CREATE TABLE IF NOT EXISTS trade_post_mortems (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      position_id INTEGER NOT NULL,
+      symbol TEXT NOT NULL,
+      entry_quality TEXT,
+      exit_quality TEXT,
+      key_lesson TEXT,
+      suggested_rule_update TEXT,
+      details_json TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS pre_order_ai_decisions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      symbol TEXT NOT NULL,
+      approved INTEGER NOT NULL,
+      confidence REAL NOT NULL,
+      risk_level TEXT NOT NULL,
+      matched_past_failure_pattern INTEGER DEFAULT 0,
+      reason TEXT NOT NULL,
+      latency_ms INTEGER,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS weekly_digest_reports (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      start_date DATETIME,
+      end_date DATETIME,
+      total_trades INTEGER,
+      win_rate REAL,
+      profit_factor REAL,
+      total_pnl REAL,
+      report_markdown TEXT,
+      suggested_updates_json TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
   `);
 
   // Migration douce : ajout des colonnes exchange et t212_ticker si absentes

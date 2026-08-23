@@ -27,6 +27,12 @@ export const config = {
   t212ApiSecret: process.env.SECRET_T212 || '',
   t212ApiUrl: process.env.T212_API_URL || 'https://demo.trading212.com',
 
+  // AI & Feedback Loop (Antigravity agy / Gemini 3.7 Flash)
+  geminiModel: process.env.GEMINI_MODEL || 'gemini-3.7-flash',
+  agyBinPath: process.env.AGY_BIN_PATH || 'agy',
+  enableAiPreOrderFilter: process.env.ENABLE_AI_PRE_ORDER_FILTER === 'true', // Étape 2 : désactivé par défaut (activable par env)
+  enableAiPostMortem: process.env.ENABLE_AI_POST_MORTEM !== 'false', // Étape 1 : Coach Quant post-trade actif par défaut
+
   // Cron
   enableCron: process.env.ENABLE_CRON !== 'false',
   cron1mSchedule: process.env.CRON_1M_SCHEDULE || '* * * * *',
