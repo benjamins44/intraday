@@ -49,6 +49,7 @@ export class MarketHoursService {
 
     const realOpenMinutes = parseTimeToMinutes(config.realMarketOpenEst, 9 * 60 + 30);  // 09h30 EST
     const entryOpenMinutes = parseTimeToMinutes(config.marketOpenEst, 10 * 60);         // 10h00 EST (Configurable via MARKET_OPEN_EST)
+    const newEntryCutoffMinutes = parseTimeToMinutes(config.newEntryCutoffEst, 15 * 60 + 30); // 15h30 EST (21h30 Paris - John Carter Cutoff)
     const squareOffMinutes = parseTimeToMinutes(config.squareOffEst, 15 * 60 + 45);     // 15h45 EST
     const closeMinutes = parseTimeToMinutes(config.marketCloseEst, 16 * 60);            // 16h00 EST
     const preMarketOpen = 4 * 60;                                                       // 04h00 EST
@@ -73,10 +74,12 @@ export class MarketHoursService {
     const isPreMarket = totalMinutes >= preMarketOpen && totalMinutes < realOpenMinutes;
     const isPastSquareOff = totalMinutes >= squareOffMinutes && totalMinutes < closeMinutes;
     const isOpeningNoise = totalMinutes >= realOpenMinutes && totalMinutes < entryOpenMinutes;
-    const canOpenNewPositions = totalMinutes >= entryOpenMinutes && totalMinutes < squareOffMinutes;
+    const canOpenNewPositions = totalMinutes >= entryOpenMinutes && totalMinutes < newEntryCutoffMinutes;
 
     let reason = 'Marché ouvert (Séance régulière)';
     if (isPastSquareOff) reason = 'Phase de Square-Off (15h45-16h00 EST) : Fermeture des positions';
+    else if (totalMinutes >= newEntryCutoffMinutes && totalMinutes < squareOffMinutes)
+      reason = 'Fin de séance (15h30-15h45 EST / 21h30-21h45 Paris) : Nouvelles entrées fermées (Gestion des positions ouvertes)';
     else if (isOpeningNoise) reason = 'Phase d\'Ouverture / Initial Balance (09h30-10h00 EST / 15h30-16h00 Paris) : Filtrage anti-bruit actif';
     else if (isPreMarket) reason = 'Pré-marché US (04h00-09h30 EST)';
     else if (totalMinutes >= closeMinutes || totalMinutes < preMarketOpen) reason = 'Marché fermé (Hors séance)';

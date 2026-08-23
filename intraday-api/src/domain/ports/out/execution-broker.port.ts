@@ -20,6 +20,13 @@ export interface ExecutionBrokerPort {
     reason: PositionExitReason
   ): Promise<Position>;
 
+  partialClosePosition?(
+    positionId: number,
+    closeQty: number,
+    exitPrice: number,
+    reason: PositionExitReason
+  ): Promise<Position>;
+
   squareOffAllOpenPositions(currentPrices: Map<string, number>): Promise<Position[]>;
 
   getLiveCash?(): Promise<{ availableCash: number; totalCapital: number }>;

@@ -24,6 +24,14 @@ export interface PivotPoints {
   s2: number;
 }
 
+export interface TTMWavesResult {
+  waveA: number; // Tendance court terme (8 périodes)
+  waveB: number; // Tendance moyen terme (17 périodes)
+  waveC: number; // Tendance long terme (34 périodes)
+  isPorscheSetup: boolean; // Wave A > 0, Wave B > 0, Wave C > 0
+  isWaveCBullish: boolean; // Wave C >= 0 (Anti-Pinto filter)
+}
+
 export class CarterIndicatorsService {
   /**
    * Moyenne mobile simple (SMA)
@@ -212,6 +220,59 @@ export class CarterIndicatorsService {
   }
 
   /**
+   * Calcul des Vagues TTM selon Rodney Julian & John Carter (Chapitre 12 de "Mastering the Trade") :
+   * - Wave A : Tendance court terme (~8 barres)
+   * - Wave B : Tendance moyen terme (~17 barres)
+   * - Wave C : Tendance long terme (~34 barres)
+   * Setup "Porsche" : Wave A > 0, Wave B > 0, Wave C > 0.
+   * Filtre d'exclusion ("Pinto") : Si Wave C < 0, interdiction d'acheter un Squeeze.
+   */
+  public calculateTTMWaves(candles: Candle[]): TTMWavesResult {
+    if (!candles || candles.length < 35) {
+      return { waveA: 0, waveB: 0, waveC: 0, isPorscheSetup: true, isWaveCBullish: true };
+    }
+
+    const closes = candles.map((c) => c.close);
+    const highs = candles.map((c) => c.high);
+    const lows = candles.map((c) => c.low);
+    const lastIdx = closes.length - 1;
+
+    const calcWaveForLength = (len: number): number => {
+      const sma = this.calculateSMA(closes, len);
+      const deltas: number[] = [];
+      for (let i = 0; i < closes.length; i++) {
+        if (i < len - 1) {
+          deltas.push(0);
+        } else {
+          const subHighs = highs.slice(i - len + 1, i + 1);
+          const subLows = lows.slice(i - len + 1, i + 1);
+          const donchianMid = (Math.max(...subHighs) + Math.min(...subLows)) / 2;
+          const currentSma = sma[i] ?? closes[i];
+          const baseline = (donchianMid + currentSma) / 2;
+          deltas.push(closes[i] - baseline);
+        }
+      }
+      const reg = this.calculateLinearRegression(deltas, len);
+      return parseFloat((reg[lastIdx] ?? 0).toFixed(4));
+    };
+
+    const waveA = calcWaveForLength(8);
+    const waveB = calcWaveForLength(17);
+    const waveC = calcWaveForLength(34);
+
+    const isWaveCBullish = waveC >= 0;
+    const isPorscheSetup = waveA > 0 && waveB > 0 && waveC > 0;
+
+    return {
+      waveA,
+      waveB,
+      waveC,
+      isPorscheSetup,
+      isWaveCBullish
+    };
+  }
+
+  /**
    * Calcul des Floor Pivots quotidiens (PP, R1, R2, S1, S2)
    */
   public calculateFloorPivots(dailyHigh: number, dailyLow: number, dailyClose: number): PivotPoints {
@@ -295,34 +356,45 @@ export class CarterIndicatorsService {
     const atr14 = atrs[atrs.length - 1] || Math.max(0.2, currentPrice * 0.005);
 
     // -------------------------------------------------------------------------
-    // PORTE 1 : Largeur de Marché $ADD / $TICK
+    // PORTE 1 : Largeur de Marché $ADD / $TICK / SPY
     // -------------------------------------------------------------------------
     const isMarketBullish = breadth.nyseAdd > -1000 && breadth.nyseTick < 1000 && breadth.regime !== 'TREND_DAY_BEAR';
 
     // -------------------------------------------------------------------------
-    // PORTE 2 : Anchor Chart 60 min (Tendance de fond)
+    // PORTE 2 : Anchor Chart 60 min & TTM Waves (Chapitre 12 - Rodney Julian & John Carter)
     // -------------------------------------------------------------------------
+    const ttmWaves = this.calculateTTMWaves(candles60m && candles60m.length >= 35 ? candles60m : candlesIntraday);
     let momentum60m = 0;
     let slope60m: 'RISING' | 'FALLING' = 'FALLING';
     let isAnchorBullish = false;
 
-    if (candles60m && candles60m.length >= 20) {
+    if (candles60m && candles60m.length >= 21) {
+      const closes60m = candles60m.map((c) => c.close);
+      const ema8_60m = this.calculateEMA(closes60m, 8);
+      const ema21_60m = this.calculateEMA(closes60m, 21);
+      const lastEma8_60m = ema8_60m[ema8_60m.length - 1];
+      const lastEma21_60m = ema21_60m[ema21_60m.length - 1];
+
       const sq60m = this.evaluateTTMSqueeze(candles60m, 20);
       momentum60m = sq60m.momentum;
       slope60m = sq60m.slope;
-      isAnchorBullish = momentum60m > 0 && slope60m === 'RISING';
+
+      // Règle John Carter : Tendance de fond haussière (EMA 8 >= EMA 21, Momentum 60m > 0 et Wave C >= 0 anti-Pinto)
+      isAnchorBullish = momentum60m > 0 && lastEma8_60m >= lastEma21_60m && ttmWaves.isWaveCBullish;
+    } else if (candles60m && candles60m.length >= 20) {
+      const sq60m = this.evaluateTTMSqueeze(candles60m, 20);
+      momentum60m = sq60m.momentum;
+      slope60m = sq60m.slope;
+      isAnchorBullish = momentum60m > 0 && slope60m === 'RISING' && ttmWaves.isWaveCBullish;
     } else {
-      isAnchorBullish = true; // Tolérance si données 60m indisponibles
+      isAnchorBullish = ttmWaves.isWaveCBullish; // Filtrage par Wave C si 60m indisponible
     }
 
     // -------------------------------------------------------------------------
-    // PORTE 3 : Déclencheur TTM Squeeze 5 min
-    // Soit Squeeze Fired (Point vert), soit compression active avec Mom > 0 croissant
+    // PORTE 3 : Déclencheur TTM Squeeze Intraday (Règle Stricte John Carter)
+    // Entrée UNIQUEMENT au premier point de sortie de compression (Fired) avec Momentum > 0 et croissant (CYAN)
     // -------------------------------------------------------------------------
-    const isSqueezeValid =
-      (sqIntra.squeezeFired && sqIntra.momentum >= 0) ||
-      (sqIntra.inSqueeze && sqIntra.momentum > 0 && sqIntra.slope === 'RISING') ||
-      (sqIntra.histColor === 'CYAN' && sqIntra.momentum > 0 && sqIntra.slope === 'RISING');
+    const isSqueezeValid = sqIntra.squeezeFired && sqIntra.momentum > 0 && sqIntra.slope === 'RISING';
 
     // -------------------------------------------------------------------------
     // PORTE 4 : Volume Relatif (RVOL >= 1.20)
@@ -332,7 +404,7 @@ export class CarterIndicatorsService {
     const isRvolValid = rvol >= 1.20;
 
     // -------------------------------------------------------------------------
-    // PORTE 5 : Niveaux de Prix & Ratio Gain/Risque (>= 1.5R)
+    // PORTE 5 : Niveaux de Prix & Ratio Gain/Risque (>= 1.4R)
     // -------------------------------------------------------------------------
     let pivots: PivotPoints | undefined;
     if (candlesDaily && candlesDaily.length >= 2) {
@@ -375,7 +447,7 @@ export class CarterIndicatorsService {
     let rejectionReason: string | undefined;
     if (!isMarketBullish) rejectionReason = `Marché défavorable ($ADD=${breadth.nyseAdd}, $TICK=${breadth.nyseTick})`;
     else if (!isAnchorBullish) rejectionReason = `Anchor 60m non aligné (Mom60m=${momentum60m.toFixed(4)}, Pente=${slope60m})`;
-    else if (!isSqueezeValid) rejectionReason = `Absence de déclenchement Squeeze valide (InSqueeze=${sqIntra.inSqueeze}, Fired=${sqIntra.squeezeFired}, Mom=${sqIntra.momentum.toFixed(4)})`;
+    else if (!isSqueezeValid) rejectionReason = `Absence de déclenchement Squeeze Fired valide (Fired=${sqIntra.squeezeFired}, InSqueeze=${sqIntra.inSqueeze}, Mom=${sqIntra.momentum.toFixed(4)}, Slope=${sqIntra.slope})`;
     else if (!isRvolValid) rejectionReason = `Volume insuffisant (RVOL=${rvol.toFixed(2)} < 1.20)`;
     else if (!isRiskRewardValid) rejectionReason = `Ratio R/R insuffisant (${riskRewardRatio}R < 1.4R)`;
 
@@ -394,6 +466,10 @@ export class CarterIndicatorsService {
         nyseTick: breadth.nyseTick,
         anchorTrendValid: isAnchorBullish,
         momentum60m,
+        waveA: ttmWaves.waveA,
+        waveB: ttmWaves.waveB,
+        waveC: ttmWaves.waveC,
+        isPorscheSetup: ttmWaves.isPorscheSetup,
         squeezeTriggerValid: isSqueezeValid,
         inSqueeze: sqIntra.inSqueeze,
         squeezeFired: sqIntra.squeezeFired,

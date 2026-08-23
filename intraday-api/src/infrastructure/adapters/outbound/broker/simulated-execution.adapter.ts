@@ -97,6 +97,61 @@ export class SimulatedExecutionAdapter implements ExecutionBrokerPort {
     return position;
   }
 
+  async partialClosePosition(
+    positionId: number,
+    closeQty: number,
+    exitPrice: number,
+    reason: PositionExitReason
+  ): Promise<Position> {
+    const position = await this.positionRepo.findById(positionId);
+    if (!position || position.status === 'CLOSED') {
+      throw new Error(`Position ${positionId} non trouvée ou déjà fermée`);
+    }
+
+    const actualCloseQty = Math.min(closeQty, position.qty);
+    if (actualCloseQty <= 0) return position;
+
+    // Calcul du P&L partiel
+    let partialPnl = 0;
+    if (position.side === 'LONG') {
+      partialPnl = (exitPrice - position.entryPrice) * actualCloseQty;
+    } else {
+      partialPnl = (position.entryPrice - exitPrice) * actualCloseQty;
+    }
+
+    const remainingQty = position.qty - actualCloseQty;
+    const remainingAllocatedCash = parseFloat((remainingQty * position.entryPrice).toFixed(2));
+
+    position.currentPrice = exitPrice;
+    position.qty = remainingQty;
+    position.allocatedCash = remainingAllocatedCash;
+    position.tp1Executed = true;
+    // Règle John Carter : Remontée immédiate du Stop à Breakeven sur le solde restant
+    position.stopLoss = position.entryPrice;
+
+    if (remainingQty === 0) {
+      position.status = 'CLOSED';
+      position.exitPrice = exitPrice;
+      position.exitTime = new Date();
+      position.exitReason = reason;
+      position.pnl = parseFloat(partialPnl.toFixed(2));
+    }
+
+    await this.positionRepo.update(position);
+
+    // Recyclage du cash libéré par la vente partielle (capital engagé vendu + PnL réalisé)
+    const portfolio = await this.positionRepo.getPortfolioCash();
+    const returnedCash = Math.max(0, actualCloseQty * position.entryPrice + partialPnl);
+    const newAvailableCash = parseFloat((portfolio.availableCash + returnedCash).toFixed(2));
+    await this.positionRepo.updatePortfolioCash(newAvailableCash);
+
+    console.log(
+      `[Execution Broker] 🎯 [VENTE PARTIELLE 50% JOHN CARTER] ID #${position.id} -> Vente de ${actualCloseQty}x ${position.symbol} @ ${exitPrice}$ (Solde restant: ${remainingQty}x | Stop remonté à Breakeven: ${position.entryPrice}$) | P&L partiel: ${partialPnl >= 0 ? '+' : ''}${partialPnl.toFixed(2)}$`
+    );
+
+    return position;
+  }
+
   async squareOffAllOpenPositions(currentPrices: Map<string, number>): Promise<Position[]> {
     const openPositions = await this.positionRepo.findOpenPositions();
     const closed: Position[] = [];

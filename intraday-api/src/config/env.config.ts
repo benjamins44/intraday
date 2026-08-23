@@ -18,7 +18,8 @@ export const config = {
   // Horaires de Marché US (Fuseau America/New_York)
   marketOpenEst: process.env.MARKET_OPEN_EST || '10:00', // Début effectif des entrées de trade (16h00 Paris)
   realMarketOpenEst: process.env.REAL_MARKET_OPEN_EST || '09:30', // Cloche d'ouverture Wall Street
-  squareOffEst: process.env.SQUARE_OFF_EST || '15:45',
+  newEntryCutoffEst: process.env.NEW_ENTRY_CUTOFF_EST || '15:30', // Arrêt strict des nouvelles entrées (21h30 Paris - John Carter)
+  squareOffEst: process.env.SQUARE_OFF_EST || '15:45', // Square-off strict liquidation des positions (21h45 Paris)
   marketCloseEst: process.env.MARKET_CLOSE_EST || '16:00',
 
   // Trading 212 API Configuration

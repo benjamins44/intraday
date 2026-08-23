@@ -197,6 +197,78 @@ export class Trading212BrokerAdapter implements ExecutionBrokerPort {
     return position;
   }
 
+  /**
+   * Vente partielle (50% John Carter) chez Trading 212 et remontée du stop à Breakeven
+   */
+  async partialClosePosition(
+    positionId: number,
+    closeQty: number,
+    exitPrice: number,
+    reason: PositionExitReason
+  ): Promise<Position> {
+    const position = await this.positionRepo.findById(positionId);
+    if (!position || position.status === 'CLOSED') {
+      throw new Error(`Position ${positionId} non trouvée ou déjà fermée`);
+    }
+
+    const actualCloseQty = Math.min(closeQty, position.qty);
+    if (actualCloseQty <= 0) return position;
+
+    // 1. Vente partielle chez Trading 212
+    const asset = await this.assetRepo.findBySymbol(position.symbol);
+    const t212Ticker = asset?.t212Ticker || `${position.symbol}_US_EQ`;
+
+    console.log(`[Trading 212] 📡 Transmission Ordre Vente Partielle : -${actualCloseQty}x ${t212Ticker} (Raison: ${reason})...`);
+
+    if (config.t212ApiKey) {
+      try {
+        const orderRes = await this.placeMarketOrder(t212Ticker, -actualCloseQty);
+        console.log(`[Trading 212] ✅ Vente partielle confirmée chez T212 (ID: ${orderRes.id || 'OK'})`);
+      } catch (err: any) {
+        console.error(`[Trading 212] ❌ Erreur lors de la vente partielle T212 (${err.message})`);
+      }
+    }
+
+    // 2. Calcul du P&L partiel et mise à jour locale
+    let partialPnl = 0;
+    if (position.side === 'LONG') {
+      partialPnl = (exitPrice - position.entryPrice) * actualCloseQty;
+    } else {
+      partialPnl = (position.entryPrice - exitPrice) * actualCloseQty;
+    }
+
+    const remainingQty = position.qty - actualCloseQty;
+    const remainingAllocatedCash = parseFloat((remainingQty * position.entryPrice).toFixed(2));
+
+    position.currentPrice = exitPrice;
+    position.qty = remainingQty;
+    position.allocatedCash = remainingAllocatedCash;
+    position.tp1Executed = true;
+    position.stopLoss = position.entryPrice; // Remontée immédiate du Stop à Breakeven
+
+    if (remainingQty === 0) {
+      position.status = 'CLOSED';
+      position.exitPrice = exitPrice;
+      position.exitTime = new Date();
+      position.exitReason = reason;
+      position.pnl = parseFloat(partialPnl.toFixed(2));
+    }
+
+    await this.positionRepo.update(position);
+
+    // 3. Recyclage du cash en BDD
+    const portfolio = await this.positionRepo.getPortfolioCash();
+    const returnedCash = Math.max(0, actualCloseQty * position.entryPrice + partialPnl);
+    const newAvailableCash = parseFloat((portfolio.availableCash + returnedCash).toFixed(2));
+    await this.positionRepo.updatePortfolioCash(newAvailableCash);
+
+    console.log(
+      `[Trading 212] 🎯 [VENTE PARTIELLE 50% JOHN CARTER] ID #${position.id} -> Vente de ${actualCloseQty}x ${position.symbol} @ ${exitPrice}$ (Solde restant: ${remainingQty}x | Stop remonté à Breakeven: ${position.entryPrice}$) | P&L partiel: ${partialPnl >= 0 ? '+' : ''}${partialPnl.toFixed(2)}$`
+    );
+
+    return position;
+  }
+
   async squareOffAllOpenPositions(currentPrices: Map<string, number>): Promise<Position[]> {
     const openPositions = await this.positionRepo.findOpenPositions();
     const closed: Position[] = [];

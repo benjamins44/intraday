@@ -14,11 +14,15 @@ export interface CarterSignalCriteria {
   nyseAdd: number;
   nyseTick: number;
 
-  // Porte 2 : Anchor Chart 60m
+  // Porte 2 : Anchor Chart 60m & TTM Waves (Chapitre 12)
   anchorTrendValid: boolean;
   momentum60m: number;
   ema8_60m?: number;
   ema21_60m?: number;
+  waveA?: number;
+  waveB?: number;
+  waveC?: number;
+  isPorscheSetup?: boolean;
 
   // Porte 3 : TTM Squeeze 5m
   squeezeTriggerValid: boolean;

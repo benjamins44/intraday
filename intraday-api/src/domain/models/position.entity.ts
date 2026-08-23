@@ -2,6 +2,7 @@ export type PositionSide = 'LONG' | 'SHORT';
 export type PositionStatus = 'OPEN' | 'CLOSED';
 export type PositionExitReason =
   | 'TP1'
+  | 'TP1_PARTIAL'
   | 'TP2'
   | 'STOP_LOSS'
   | 'MOMENTUM_INVALIDATION'

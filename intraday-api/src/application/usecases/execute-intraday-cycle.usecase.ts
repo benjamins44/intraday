@@ -173,7 +173,7 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
         continue;
       }
 
-      // 3. Vérification & Exécution du Trailing Stop selon John Carter :
+      // 3. Vérification & Exécution du Take-Profit 1 (Vente Partielle 50% + Breakeven selon John Carter) :
       const candles5m = await this.marketData.getCandles(exchange, pos.symbol, '5', 30);
       
       if (
@@ -182,17 +182,21 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
           (pos.side === 'SHORT' && curPrice <= pos.takeProfit1))
       ) {
         console.log(`[Cycle 1-Min] 🎯 Take-Profit 1 atteint sur ${pos.symbol} à ${curPrice}$ (TP1: ${pos.takeProfit1}$)`);
-        pos.tp1Executed = true;
         
-        // Règle Carter 1 : Remontée immédiate du Stop à Breakeven
-        if (pos.side === 'LONG' && pos.stopLoss < pos.entryPrice) {
+        const closeQty = Math.floor(pos.qty / 2);
+        if (closeQty > 0 && typeof this.executionBroker.partialClosePosition === 'function') {
+          console.log(`[Cycle 1-Min] 💰 Exécution Vente Partielle 50% (${closeQty}/${pos.qty} titres) sur ${pos.symbol}...`);
+          const updatedPos = await this.executionBroker.partialClosePosition(pos.id!, closeQty, curPrice, 'TP1_PARTIAL');
+          pos.qty = updatedPos.qty;
+          pos.allocatedCash = updatedPos.allocatedCash;
+          pos.tp1Executed = true;
+          pos.stopLoss = updatedPos.stopLoss;
+        } else {
+          pos.tp1Executed = true;
           pos.stopLoss = pos.entryPrice;
+          await this.positionRepo.update(pos);
           console.log(`[Trailing Stop] 🛡️ Stop-Loss remonté à BREAKEVEN (${pos.entryPrice}$) sur ${pos.symbol} [Trade Sécurisé]`);
-        } else if (pos.side === 'SHORT' && pos.stopLoss > pos.entryPrice) {
-          pos.stopLoss = pos.entryPrice;
-          console.log(`[Trailing Stop] 🛡️ Stop-Loss descendu à BREAKEVEN (${pos.entryPrice}$) sur ${pos.symbol} [Trade Sécurisé]`);
         }
-        await this.positionRepo.update(pos);
       }
 
       // Règle Carter 2 : Trailing Stop Dynamique Assoupli (EMA 21 5m + Marge anti-mèche 0.6 ATR)
@@ -254,24 +258,23 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
         }
       }
 
-      // 3. Vérification Invalidation Momentum TTM (Confirmation stricte sur 2 bougies 5m consécutives)
-      if (candles5m.length >= 22) {
-        // Bougie 5m courante (index N) et bougie 5m précédente (index N-1)
+      // 4. Sortie Anticipée sur Affaiblissement du Momentum TTM (Chapitre 11 John Carter)
+      // Carter sort dès que l'histogramme de momentum montre son premier affaiblissement (CYAN -> BLUE pour Long)
+      if (candles5m.length >= 21) {
         const sq5mCurrent = this.indicatorsService.evaluateTTMSqueeze(candles5m, 20);
-        const sq5mPrev = this.indicatorsService.evaluateTTMSqueeze(candles5m.slice(0, -1), 20);
 
-        const isLongReversed =
-          (sq5mCurrent.histColor === 'RED' || (sq5mCurrent.momentum < 0 && sq5mCurrent.slope === 'FALLING')) &&
-          (sq5mPrev.histColor === 'RED' || (sq5mPrev.momentum < 0 && sq5mPrev.slope === 'FALLING'));
+        const isLongWeakened =
+          pos.side === 'LONG' &&
+          (sq5mCurrent.histColor === 'BLUE' || sq5mCurrent.histColor === 'RED' || (sq5mCurrent.momentum <= 0 && sq5mCurrent.slope === 'FALLING'));
 
-        const isShortReversed =
-          (sq5mCurrent.histColor === 'CYAN' || (sq5mCurrent.momentum > 0 && sq5mCurrent.slope === 'RISING')) &&
-          (sq5mPrev.histColor === 'CYAN' || (sq5mPrev.momentum > 0 && sq5mPrev.slope === 'RISING'));
+        const isShortWeakened =
+          pos.side === 'SHORT' &&
+          (sq5mCurrent.histColor === 'YELLOW' || sq5mCurrent.histColor === 'CYAN' || (sq5mCurrent.momentum >= 0 && sq5mCurrent.slope === 'RISING'));
 
-        const isReversed = (pos.side === 'LONG' && isLongReversed) || (pos.side === 'SHORT' && isShortReversed);
+        const isWeakened = isLongWeakened || isShortWeakened;
 
-        if (isReversed) {
-          console.log(`[Cycle 1-Min] 🔄 Invalidation Momentum Squeeze confirmée sur 2 bougies 5m pour ${pos.symbol} -> Sortie`);
+        if (isWeakened) {
+          console.log(`[Cycle 1-Min] 🔄 Ralentissement du Momentum Squeeze détecté pour ${pos.symbol} (Couleur: ${sq5mCurrent.histColor}, Momentum: ${sq5mCurrent.momentum.toFixed(4)}) -> Sortie au Marché John Carter.`);
           const closed = await this.executionBroker.closePosition(pos.id!, curPrice, 'MOMENTUM_INVALIDATION');
           closedPositions.push(closed);
           continue;
@@ -351,8 +354,8 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
     for (let i = 0; i < topCandidatesToDeepScan.length; i += chunkSize) {
       const chunk = topCandidatesToDeepScan.slice(i, i + chunkSize);
       const promises = chunk.map(async (asset) => {
-        // Bougies Intraday (5m par défaut)
-        const candlesIntra = await this.marketData.getCandles(asset.exchange, asset.symbol, timeframe, 35);
+        // Bougies Intraday (5m par défaut) : 60 barres pour couvrir TTM Waves A, B, C (34 barres) + Squeeze (20 barres)
+        const candlesIntra = await this.marketData.getCandles(asset.exchange, asset.symbol, timeframe, 60);
         if (candlesIntra.length < 20) return null;
 
         // Vérification de la fraîcheur des données (aujourd'hui)
@@ -362,9 +365,9 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
           return null;
         }
 
-        // Bougies Anchor (60m & Daily pour les pivots)
+        // Bougies Anchor (60m & Daily pour les pivots et TTM Waves macro) : 50 barres 60m
         const [candles60m, candlesDaily] = await Promise.all([
-          this.marketData.getCandles(asset.exchange, asset.symbol, '60', 30),
+          this.marketData.getCandles(asset.exchange, asset.symbol, '60', 50),
           this.marketData.getCandles(asset.exchange, asset.symbol, 'D', 5)
         ]);
 
