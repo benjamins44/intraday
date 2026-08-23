@@ -13,7 +13,12 @@ export class WeeklyDigestUseCase {
   async execute(lookbackDays = 7): Promise<WeeklyDigestReport | null> {
     try {
       const now = new Date();
-      const startDate = new Date(now.getTime() - lookbackDays * 24 * 3600 * 1000);
+      // Calcul du début de semaine (Lundi 00h00) pour couvrir l'intégralité des séances de la semaine
+      const dayOfWeek = now.getDay(); // 0 = Dimanche, 1 = Lundi, 5 = Vendredi
+      const distanceToMonday = (dayOfWeek + 6) % 7;
+      const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - distanceToMonday, 0, 0, 0);
+      const startDate = lookbackDays === 7 ? monday : new Date(now.getTime() - lookbackDays * 24 * 3600 * 1000);
+
       const history = await this.positionRepo.findByStatus('CLOSED');
 
       const recentTrades = history.filter((p) => {

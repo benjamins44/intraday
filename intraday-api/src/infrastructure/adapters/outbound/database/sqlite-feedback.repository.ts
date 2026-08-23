@@ -124,6 +124,11 @@ export class SqliteFeedbackRepository implements AiFeedbackRepositoryPort {
     return Number(result.lastInsertRowid);
   }
 
+  async hasPostMortem(positionId: number): Promise<boolean> {
+    const row = this.db.prepare('SELECT COUNT(*) as cnt FROM trade_post_mortems WHERE position_id = ?').get(positionId) as { cnt: number };
+    return row && row.cnt > 0;
+  }
+
   async getRecentPostMortems(limit = 10): Promise<TradePostMortem[]> {
     const rows = this.db.prepare(`SELECT * FROM trade_post_mortems ORDER BY id DESC LIMIT ?`).all(limit) as any[];
     return rows.map((r) => ({

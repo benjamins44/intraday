@@ -16,6 +16,7 @@ export interface AiFeedbackRepositoryPort {
   incrementLessonUsage(lessonId: number): Promise<void>;
   
   savePostMortem(postMortem: TradePostMortem): Promise<number>;
+  hasPostMortem(positionId: number): Promise<boolean>;
   getRecentPostMortems(limit?: number): Promise<TradePostMortem[]>;
   
   savePreOrderDecision(decision: PreOrderAiDecision): Promise<number>;

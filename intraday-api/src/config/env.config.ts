@@ -36,5 +36,7 @@ export const config = {
   // Cron
   enableCron: process.env.ENABLE_CRON !== 'false',
   cron1mSchedule: process.env.CRON_1M_SCHEDULE || '* * * * *',
+  cronDailyPostMortemSchedule: process.env.CRON_DAILY_POST_MORTEM_SCHEDULE || '5 16 * * 1-5', // 22h05 Paris (16h05 EST) Lun-Ven
+  cronWeeklyDigestSchedule: process.env.CRON_WEEKLY_DIGEST_SCHEDULE || '15 16 * * 5', // 22h15 Paris (16h15 EST) Chaque Vendredi
   cronHotListSchedule: process.env.CRON_HOTLIST_SCHEDULE || '15 9 * * 1-5'
 };

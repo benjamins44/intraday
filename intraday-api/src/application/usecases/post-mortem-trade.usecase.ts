@@ -1,4 +1,5 @@
 import { Position } from '../../domain/models/position.entity';
+import { PositionRepositoryPort } from '../../domain/ports/out/position-repository.port';
 import { AiAdvisorPort } from '../../domain/ports/out/ai-advisor.port';
 import { AiFeedbackRepositoryPort } from '../../domain/ports/out/ai-feedback-repository.port';
 import { AssetRepositoryPort } from '../../domain/ports/out/asset-repository.port';
@@ -8,8 +9,47 @@ export class PostMortemTradeUseCase {
   constructor(
     private aiAdvisor: AiAdvisorPort,
     private feedbackRepo: AiFeedbackRepositoryPort,
-    private assetRepo?: AssetRepositoryPort
+    private assetRepo?: AssetRepositoryPort,
+    private positionRepo?: PositionRepositoryPort
   ) {}
+
+  /**
+   * Exécution par lot quotidienne le soir (22h05 Paris / 16h05 EST)
+   * Analyse tous les trades clôturés du jour qui n'ont pas encore de post-mortem.
+   */
+  async executeDailyBatch(): Promise<TradePostMortem[]> {
+    if (!this.positionRepo) {
+      console.warn('[Coach Quant AI] PositionRepository non fourni pour le batch quotidien.');
+      return [];
+    }
+
+    const closedPositions = await this.positionRepo.findByStatus('CLOSED');
+    const now = new Date();
+    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+
+    const todayClosed = closedPositions.filter((p) => {
+      const exitTime = p.exitTime ? new Date(p.exitTime) : new Date(p.entryTime);
+      return exitTime >= startOfDay;
+    });
+
+    console.log(`\n[Coach Quant AI] 🌙 Démarrage du debriefing post-marché : ${todayClosed.length} trade(s) clôturé(s) aujourd'hui.`);
+
+    const postMortems: TradePostMortem[] = [];
+    for (const pos of todayClosed) {
+      if (!pos.id) continue;
+      const alreadyAnalyzed = await this.feedbackRepo.hasPostMortem(pos.id);
+      if (alreadyAnalyzed) {
+        console.log(`[Coach Quant AI] ⏭️ Trade #${pos.id} (${pos.symbol}) déjà analysé. Skip.`);
+        continue;
+      }
+
+      const res = await this.execute(pos);
+      if (res) postMortems.push(res);
+    }
+
+    console.log(`[Coach Quant AI] 🏁 Debriefing post-marché terminé : ${postMortems.length} nouveau(x) post-mortem(s) enregistré(s).\n`);
+    return postMortems;
+  }
 
   async execute(closedPosition: Position): Promise<TradePostMortem | null> {
     try {

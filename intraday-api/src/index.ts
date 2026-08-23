@@ -53,7 +53,7 @@ async function bootstrap() {
   // 3. Adaptateurs & UseCases IA & Feedback Loop (AI_FEEDBACK_LOOP.md)
   const feedbackRepo = new SqliteFeedbackRepository();
   const aiAdvisor = new AntigravityGeminiAdapter();
-  const postMortemTradeUseCase = new PostMortemTradeUseCase(aiAdvisor, feedbackRepo, assetRepo);
+  const postMortemTradeUseCase = new PostMortemTradeUseCase(aiAdvisor, feedbackRepo, assetRepo, positionRepo);
   const weeklyDigestUseCase = new WeeklyDigestUseCase(positionRepo, aiAdvisor, feedbackRepo);
   const preOrderAiFilterUseCase = new PreOrderAiFilterUseCase(aiAdvisor, feedbackRepo, assetRepo);
 
@@ -78,8 +78,12 @@ async function bootstrap() {
   );
   const generateHotListUseCase = new GenerateHotListUseCase(assetRepo, marketData, indicatorsService, logRepo);
 
-  // 5. Instanciation et Démarrage du Planificateur Cron (Cycle 1-minute uniquement)
-  const scheduler = new IntradaySchedulerAdapter(executeCycleUseCase);
+  // 5. Instanciation et Démarrage du Planificateur Cron (1-Min, Post-Marché 22h05 & Hebdo 22h15)
+  const scheduler = new IntradaySchedulerAdapter(
+    executeCycleUseCase,
+    postMortemTradeUseCase,
+    weeklyDigestUseCase
+  );
   scheduler.start();
 
   // 6. Démarrage du Serveur Express HTTP
