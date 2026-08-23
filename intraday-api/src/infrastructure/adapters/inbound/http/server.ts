@@ -17,6 +17,25 @@ import { WeeklyDigestUseCase } from '../../../../application/usecases/weekly-dig
 import { AiFeedbackRepositoryPort } from '../../../../domain/ports/out/ai-feedback-repository.port';
 import { PositionRepositoryPort } from '../../../../domain/ports/out/position-repository.port';
 
+import { spawnSync } from 'child_process';
+import { config } from '../../../../config/env.config';
+
+function checkAgyHealth(): { status: 'OK' | 'ERROR'; version?: string; error?: string } {
+  try {
+    const agyBin = config.agyBinPath || 'agy';
+    const result = spawnSync(agyBin, ['--version'], { encoding: 'utf-8', timeout: 3000 });
+    if (result.status === 0 && result.stdout) {
+      return { status: 'OK', version: result.stdout.trim() };
+    }
+    return {
+      status: 'ERROR',
+      error: (result.stderr || result.error?.message || `agy CLI exited with code ${result.status}`).trim()
+    };
+  } catch (err: any) {
+    return { status: 'ERROR', error: err.message };
+  }
+}
+
 export function createHttpServer(
   manageAssetsUseCase: ManageAssetsUseCasePort,
   managePositionsUseCase: ManagePositionsUseCasePort,
@@ -34,9 +53,26 @@ export function createHttpServer(
   app.use(cors());
   app.use(express.json());
 
-  // Health check
+  // Health check avec vérification de l'accès à Antigravity (agy CLI)
   app.get('/health', (_req: Request, res: Response) => {
-    res.json({ status: 'UP', service: 'intraday-api', timestamp: new Date().toISOString() });
+    const agyHealth = checkAgyHealth();
+    res.json({
+      status: 'UP',
+      service: 'intraday-api',
+      timestamp: new Date().toISOString(),
+      components: {
+        database: 'OK',
+        antigravityCli: {
+          status: agyHealth.status,
+          bin: config.agyBinPath || 'agy',
+          version: agyHealth.version,
+          error: agyHealth.error,
+          model: config.geminiModel,
+          preOrderFilterEnabled: config.enableAiPreOrderFilter,
+          postMortemEnabled: config.enableAiPostMortem
+        }
+      }
+    });
   });
 
   // Montage des routes
