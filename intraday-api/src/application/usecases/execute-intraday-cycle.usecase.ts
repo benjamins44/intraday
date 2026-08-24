@@ -332,7 +332,7 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
     const allUniverseAssets = rawUniverseAssets.filter((a) => a.t212Ticker && a.t212Ticker.trim().length > 0);
     const timeframe = config.intradayResolution || '5';
 
-    console.log(`[Cycle 1-Min] 🔍 Scan de l'univers éligible T212 (${allUniverseAssets.length} actions) en entonnoir 2-étapes. Positions actives: ${activeOpenPositions.length} | Cash dispo: ${portfolio.availableCash.toFixed(2)}$ (${availableCashPercent.toFixed(1)}%)`);
+    console.log(`[Cycle 1-Min] 🏛️ Scan de l'univers S&P 500 (${allUniverseAssets.length} leaders institutionnels). Positions actives: ${activeOpenPositions.length} | Cash dispo: ${portfolio.availableCash.toFixed(2)}$ (${availableCashPercent.toFixed(1)}%)`);
 
     // ÉTAGE 1 : Pré-filtrage ultra-rapide par Batch Quotes HTTP (1 seule requête par lot de 50)
     // Objectif : Isoler instantanément les actions en mouvement significatif (Gap/Volatilité/Volume)

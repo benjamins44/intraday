@@ -57,13 +57,13 @@ async function bootstrap() {
   const weeklyDigestUseCase = new WeeklyDigestUseCase(positionRepo, aiAdvisor, feedbackRepo);
   const preOrderAiFilterUseCase = new PreOrderAiFilterUseCase(aiAdvisor, feedbackRepo, assetRepo);
 
-  // 4. Auto-seed et synchronisation complète des actifs et tickers T212
+  // 4. Auto-seed et synchronisation complète de l'univers S&P 500 avec tickers T212
   const manageAssetsUseCase = new ManageAssetsUseCase(assetRepo);
   const currentAssetCount = await assetRepo.count();
-  if (currentAssetCount < 1000) {
-    console.log(`[Seed] Initialisation automatique de l'univers Russell 2000 avec tickers Trading 212...`);
+  if (currentAssetCount < 490 || currentAssetCount > 515) {
+    console.log(`[Seed] 🏛️ Réinitialisation stricte de l'univers : chargement des 503 actions du S&P 500...`);
     const seedResult = await manageAssetsUseCase.seedTopUSAssets();
-    console.log(`[Seed] ✅ Univers synchronisé : ${seedResult.insertedCount} actifs insérés (Total : ${seedResult.totalCount}).`);
+    console.log(`[Seed] ✅ Univers S&P 500 synchronisé : ${seedResult.insertedCount} actifs insérés (Total : ${seedResult.totalCount}).`);
   }
   const managePositionsUseCase = new ManagePositionsUseCase(positionRepo, executionBroker, marketData);
   const executeCycleUseCase = new ExecuteIntradayCycleUseCase(

@@ -16,4 +16,5 @@ export interface AssetRepositoryPort {
   ): Promise<void>;
   clearHotList(): Promise<void>;
   count(): Promise<number>;
+  deleteAll(): Promise<void>;
 }

@@ -133,6 +133,10 @@ export class SqliteAssetRepository implements AssetRepositoryPort {
     return row.count;
   }
 
+  async deleteAll(): Promise<void> {
+    this.db.prepare('DELETE FROM assets').run();
+  }
+
   private mapRowToEntity(row: any): Asset {
     return {
       id: row.id,

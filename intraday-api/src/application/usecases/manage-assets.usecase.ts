@@ -82,9 +82,10 @@ export class ManageAssetsUseCase implements ManageAssetsUseCasePort {
     const fs = await import('fs');
     const path = await import('path');
 
-    let actifsFilePath = path.resolve(__dirname, '../../../../actions/actifs2000.txt');
-    if (!fs.existsSync(actifsFilePath)) {
-      actifsFilePath = path.resolve(__dirname, '../../../../actions/actifs1000.txt');
+    // Chemin du fichier sp500.csv
+    let sp500FilePath = path.resolve(__dirname, '../../../../actions/sp500.csv');
+    if (!fs.existsSync(sp500FilePath)) {
+      sp500FilePath = path.resolve(__dirname, '../../../actions/sp500.csv');
     }
 
     // Chargement du catalogue Trading 212
@@ -94,12 +95,12 @@ export class ManageAssetsUseCase implements ManageAssetsUseCasePort {
       try {
         const rawT212 = JSON.parse(fs.readFileSync(t212InstrumentsPath, 'utf8')) as any[];
         for (const inst of rawT212) {
-          if (inst.ticker && inst.shortName) {
-            // Priorité aux tickers US (ex: AAPL_US_EQ)
+          if (inst.ticker) {
+            const cleanSym = inst.ticker.split('_')[0].toUpperCase();
             if (inst.currencyCode === 'USD' || inst.ticker.endsWith('_US_EQ')) {
-              t212Map.set(inst.shortName.toUpperCase(), inst.ticker);
-            } else if (!t212Map.has(inst.shortName.toUpperCase())) {
-              t212Map.set(inst.shortName.toUpperCase(), inst.ticker);
+              t212Map.set(cleanSym, inst.ticker);
+            } else if (!t212Map.has(cleanSym)) {
+              t212Map.set(cleanSym, inst.ticker);
             }
           }
         }
@@ -110,41 +111,41 @@ export class ManageAssetsUseCase implements ManageAssetsUseCasePort {
 
     const assetsToInsert: Omit<Asset, 'id'>[] = [];
 
-    if (fs.existsSync(actifsFilePath)) {
-      const content = fs.readFileSync(actifsFilePath, 'utf8');
-      const lines = content.split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'));
+    if (fs.existsSync(sp500FilePath)) {
+      const content = fs.readFileSync(sp500FilePath, 'utf8');
+      const lines = content.split('\n').map((l) => l.trim()).filter((l) => l.length > 0);
 
-      for (let i = 0; i < lines.length; i++) {
+      // Saut de l'en-tête (ligne 0)
+      for (let i = 1; i < lines.length; i++) {
         const line = lines[i];
-        // Format : Nom - Ticker \t Var1j \t Var5j \t Capi
-        const parts = line.split('\t');
-        const nameTicker = parts[0] || '';
-        const dashIdx = nameTicker.lastIndexOf(' - ');
+        if (!line || line.startsWith('#')) continue;
 
-        if (dashIdx !== -1) {
-          const name = nameTicker.substring(0, dashIdx).trim();
-          const symbol = nameTicker.substring(dashIdx + 3).trim().toUpperCase();
+        // Parsing CSV simple avec gestion des guillemets
+        const parts = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+        if (parts.length >= 3) {
+          const rawSymbol = parts[0].replace(/"/g, '').trim().toUpperCase();
+          const symbol = rawSymbol.replace(/\./g, '-'); // ex: BRK.B -> BRK-B pour Yahoo
+          const name = parts[1].replace(/"/g, '').trim();
+          const sector = parts[2].replace(/"/g, '').trim();
 
           if (symbol && name) {
-            // Détection de l'échange :
             const known = DEFAULT_TOP_US_STOCKS.find((s) => s.symbol === symbol);
             let exchange = known?.exchange;
-
             if (!exchange) {
               exchange = symbol.length <= 3 ? 'NYSE' : 'NASDAQ';
             }
 
-            // Ticker T212 associé
             const t212Ticker = t212Map.get(symbol) || `${symbol}_US_EQ`;
 
             assetsToInsert.push({
               symbol,
               name,
               exchange,
+              sector,
               t212Ticker,
               isActive: true,
-              isInHotList: i < 50, // Les 50 premiers en Hot List initiale
-              hotListRank: i < 50 ? i + 1 : undefined
+              isInHotList: i <= 50,
+              hotListRank: i <= 50 ? i : undefined
             });
           }
         }
@@ -152,9 +153,13 @@ export class ManageAssetsUseCase implements ManageAssetsUseCasePort {
     }
 
     const finalAssets = assetsToInsert.length > 0 ? assetsToInsert : DEFAULT_TOP_US_STOCKS;
+    
+    // Nettoyage complet pour garantir que seules les actions S&P 500 sont présentes
+    await this.assetRepo.deleteAll();
     await this.assetRepo.saveBulk(finalAssets as Asset[]);
     const total = await this.assetRepo.count();
 
+    console.log(`[Seed] 🏛️ Univers S&P 500 initialisé avec succès : ${finalAssets.length} leaders institutionnels insérés.`);
     return { insertedCount: finalAssets.length, totalCount: total };
   }
 }
