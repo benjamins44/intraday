@@ -82,16 +82,39 @@ export class ManageAssetsUseCase implements ManageAssetsUseCasePort {
     const fs = await import('fs');
     const path = await import('path');
 
-    // Chemin du fichier sp500.csv
-    let sp500FilePath = path.resolve(__dirname, '../../../../actions/sp500.csv');
-    if (!fs.existsSync(sp500FilePath)) {
-      sp500FilePath = path.resolve(__dirname, '../../../actions/sp500.csv');
+    // Recherche robuste du fichier sp500.csv (supporte structure locale, monorepo et dossier pi)
+    const candidatePaths = [
+      path.resolve(__dirname, '../../../../actions/sp500.csv'),
+      path.resolve(__dirname, '../../../actions/sp500.csv'),
+      path.resolve(__dirname, '../../actions/sp500.csv'),
+      path.resolve(__dirname, '../actions/sp500.csv'),
+      path.resolve(__dirname, '../../../data/sp500.csv'),
+      path.resolve(__dirname, '../../data/sp500.csv'),
+      path.resolve(__dirname, '../data/sp500.csv'),
+      path.resolve(process.cwd(), 'actions/sp500.csv'),
+      path.resolve(process.cwd(), '../actions/sp500.csv'),
+      path.resolve(process.cwd(), 'data/sp500.csv'),
+      path.resolve(process.cwd(), 'sp500.csv')
+    ];
+
+    const sp500FilePath = candidatePaths.find((p) => fs.existsSync(p));
+    if (sp500FilePath) {
+      console.log(`[Seed] 📄 Fichier S&P 500 trouvé : ${sp500FilePath}`);
+    } else {
+      console.error(`[Seed] ❌ ERREUR : sp500.csv introuvable dans les chemins testés :`, candidatePaths);
     }
 
     // Chargement du catalogue Trading 212
-    const t212InstrumentsPath = path.resolve(__dirname, '../../../t212_instruments.json');
+    const t212InstrumentsCandidatePaths = [
+      path.resolve(__dirname, '../../../t212_instruments.json'),
+      path.resolve(__dirname, '../../t212_instruments.json'),
+      path.resolve(__dirname, '../t212_instruments.json'),
+      path.resolve(process.cwd(), 't212_instruments.json'),
+      path.resolve(process.cwd(), '../t212_instruments.json')
+    ];
+    const t212InstrumentsPath = t212InstrumentsCandidatePaths.find((p) => fs.existsSync(p));
     const t212Map = new Map<string, string>();
-    if (fs.existsSync(t212InstrumentsPath)) {
+    if (t212InstrumentsPath) {
       try {
         const rawT212 = JSON.parse(fs.readFileSync(t212InstrumentsPath, 'utf8')) as any[];
         for (const inst of rawT212) {
@@ -111,7 +134,7 @@ export class ManageAssetsUseCase implements ManageAssetsUseCasePort {
 
     const assetsToInsert: Omit<Asset, 'id'>[] = [];
 
-    if (fs.existsSync(sp500FilePath)) {
+    if (sp500FilePath && fs.existsSync(sp500FilePath)) {
       const content = fs.readFileSync(sp500FilePath, 'utf8');
       const lines = content.split('\n').map((l) => l.trim()).filter((l) => l.length > 0);
 
