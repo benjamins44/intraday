@@ -269,23 +269,29 @@ export class ExecuteIntradayCycleUseCase implements ExecuteCycleUseCasePort {
         }
       }
 
-      // 4. Sortie Anticipée sur Affaiblissement du Momentum TTM (Chapitre 11 John Carter)
-      // Carter sort dès que l'histogramme de momentum montre son premier affaiblissement (CYAN -> BLUE pour Long)
+      // 4. Sortie Anticipée sur Invalidation Réelle du Momentum TTM (Chapitre 11 John Carter)
+      // Carter sort si le momentum s'inverse réellement en territoire négatif (passe sous 0 / Rouge pour Long),
+      // ou si le TP1 a déjà été encaissé et que le momentum commence à s'épuiser.
       if (candles5m.length >= 21) {
         const sq5mCurrent = this.indicatorsService.evaluateTTMSqueeze(candles5m, 20);
 
-        const isLongWeakened =
-          pos.side === 'LONG' &&
-          (sq5mCurrent.histColor === 'BLUE' || sq5mCurrent.histColor === 'RED' || (sq5mCurrent.momentum <= 0 && sq5mCurrent.slope === 'FALLING'));
+        const isLongFlippedNegative =
+          pos.side === 'LONG' && (sq5mCurrent.histColor === 'RED' || sq5mCurrent.momentum < 0);
 
-        const isShortWeakened =
-          pos.side === 'SHORT' &&
-          (sq5mCurrent.histColor === 'YELLOW' || sq5mCurrent.histColor === 'CYAN' || (sq5mCurrent.momentum >= 0 && sq5mCurrent.slope === 'RISING'));
+        const isShortFlippedPositive =
+          pos.side === 'SHORT' && (sq5mCurrent.histColor === 'CYAN' || sq5mCurrent.momentum > 0);
 
-        const isWeakened = isLongWeakened || isShortWeakened;
+        // Si TP1 a déjà été touché (gains engrangés), on sort sur essoufflement (Bleu foncé ou Jaune)
+        const isPostTp1Weakened =
+          pos.tp1Executed &&
+          ((pos.side === 'LONG' && sq5mCurrent.histColor === 'BLUE') ||
+            (pos.side === 'SHORT' && sq5mCurrent.histColor === 'YELLOW'));
+
+        const isWeakened = isLongFlippedNegative || isShortFlippedPositive || isPostTp1Weakened;
 
         if (isWeakened) {
-          console.log(`[Cycle 1-Min] 🔄 Ralentissement du Momentum Squeeze détecté pour ${pos.symbol} (Couleur: ${sq5mCurrent.histColor}, Momentum: ${sq5mCurrent.momentum.toFixed(4)}) -> Sortie au Marché John Carter.`);
+          const reasonMsg = pos.tp1Executed ? 'Essoufflement post-TP1' : 'Retournement réel sous 0';
+          console.log(`[Cycle 1-Min] 🔄 Invalidation du Momentum Squeeze détectée pour ${pos.symbol} (${reasonMsg} | Couleur: ${sq5mCurrent.histColor}, Momentum: ${sq5mCurrent.momentum.toFixed(4)}) -> Sortie au Marché.`);
           const closed = await this.executionBroker.closePosition(pos.id!, curPrice, 'MOMENTUM_INVALIDATION');
           closedPositions.push(closed);
           if (this.postMortemTradeUseCase && config.enableAiPostMortem) {

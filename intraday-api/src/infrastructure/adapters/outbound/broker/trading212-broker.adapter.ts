@@ -99,32 +99,61 @@ export class Trading212BrokerAdapter implements ExecutionBrokerPort {
 
     console.log(`[Trading 212] 📡 Transmission Ordre Achat Market : ${qty}x ${t212Ticker} (Ticker local: ${symbol})...`);
 
+    let executedPrice = entryPrice;
+    let executedQty = qty;
+
     // 3. Envoi de l'ordre d'achat chez Trading 212 (uniquement si LONG)
     if (side === 'LONG' && config.t212ApiKey) {
       try {
         const orderRes = await this.placeMarketOrder(t212Ticker, qty);
         console.log(`[Trading 212] ✅ Ordre Achat confirmé chez T212 (ID: ${orderRes.id || 'OK'})`);
+
+        // Récupération immédiate du prix et de la quantité réels exécutés par T212
+        if (orderRes.fillPrice || orderRes.avgPrice) {
+          executedPrice = orderRes.fillPrice || orderRes.avgPrice;
+          executedQty = orderRes.filledQuantity || qty;
+        } else if (orderRes.id) {
+          // Attente brève de 400ms pour récupérer le rapport d'exécution précis si disponible
+          await new Promise((r) => setTimeout(r, 400));
+          try {
+            const details = await this.fetchOrderDetails(orderRes.id);
+            if (details && (details.fillPrice || details.avgPrice || (details.filledValue && details.filledQuantity))) {
+              executedPrice = details.fillPrice || details.avgPrice || (details.filledValue / details.filledQuantity);
+              executedQty = details.filledQuantity || qty;
+            }
+          } catch {}
+        }
       } catch (err: any) {
         console.error(`[Trading 212] ❌ Échec STRICT ordre Achat T212 sur ${t212Ticker} (${err.message}) -> Annulation de la position en BDD.`);
         throw new Error(`[Trading 212 Broker Error] Achat refusé par T212 sur ${t212Ticker}: ${err.message}`);
       }
     }
 
-    // 4. Déduire le cash et enregistrer en base locale UNIQUEMENT si l'ordre T212 a réussi
-    const newAvailableCash = parseFloat((portfolio.availableCash - allocatedCash).toFixed(2));
+    // 4. Calcul précis du Stop-Loss, Take-Profit et Cash engagé basés sur le VRAI cours d'exécution T212
+    const stopDistance = Math.abs(entryPrice - stopLoss);
+    const tp1Distance = Math.abs(takeProfit1 - entryPrice);
+    const tp2Distance = takeProfit2 ? Math.abs(takeProfit2 - entryPrice) : undefined;
+
+    const realStopLoss = parseFloat((side === 'LONG' ? executedPrice - stopDistance : executedPrice + stopDistance).toFixed(2));
+    const realTakeProfit1 = parseFloat((side === 'LONG' ? executedPrice + tp1Distance : executedPrice - tp1Distance).toFixed(2));
+    const realTakeProfit2 = tp2Distance ? parseFloat((side === 'LONG' ? executedPrice + tp2Distance : executedPrice - tp2Distance).toFixed(2)) : undefined;
+    const realAllocatedCash = parseFloat((executedQty * executedPrice).toFixed(2));
+
+    // Déduire le cash réel
+    const newAvailableCash = parseFloat((portfolio.availableCash - realAllocatedCash).toFixed(2));
     await this.positionRepo.updatePortfolioCash(newAvailableCash);
 
     const position: Position = {
       symbol,
       exchange,
       side,
-      entryPrice,
-      currentPrice: entryPrice,
-      qty,
-      allocatedCash,
-      stopLoss,
-      takeProfit1,
-      takeProfit2: takeProfit2 || undefined,
+      entryPrice: executedPrice,
+      currentPrice: executedPrice,
+      qty: executedQty,
+      allocatedCash: realAllocatedCash,
+      stopLoss: realStopLoss,
+      takeProfit1: realTakeProfit1,
+      takeProfit2: realTakeProfit2,
       status: 'OPEN',
       entryTime: new Date(),
       tp1Executed: false,
@@ -134,7 +163,7 @@ export class Trading212BrokerAdapter implements ExecutionBrokerPort {
     };
 
     const saved = await this.positionRepo.save(position);
-    console.log(`[Trading 212] 🚀 [ORDRE EXÉCUTÉ] ID #${saved.id} -> ${side} ${qty}x ${symbol} [T212: ${t212Ticker}] @ ${entryPrice}$ | SL: ${stopLoss}$ | TP1: ${takeProfit1}$ | Engagé: ${allocatedCash}$`);
+    console.log(`[Trading 212] 🚀 [ORDRE EXÉCUTÉ RÉEL] ID #${saved.id} -> ${side} ${executedQty}x ${symbol} [T212: ${t212Ticker}] @ ${executedPrice}$ (Estimé: ${entryPrice}$) | SL: ${realStopLoss}$ | TP1: ${realTakeProfit1}$ | Engagé: ${realAllocatedCash}$`);
     return saved;
   }
 
@@ -157,27 +186,41 @@ export class Trading212BrokerAdapter implements ExecutionBrokerPort {
 
     console.log(`[Trading 212] 📡 Transmission Ordre Vente Market : -${position.qty}x ${t212Ticker} (Raison: ${reason})...`);
 
+    let finalExitPrice = exitPrice;
+
     // 2. Envoi de l'ordre de vente chez Trading 212 (quantité négative selon spec T212)
     if (config.t212ApiKey) {
       try {
         const orderRes = await this.placeMarketOrder(t212Ticker, -position.qty);
         console.log(`[Trading 212] ✅ Vente confirmée chez T212 (ID: ${orderRes.id || 'OK'})`);
+
+        if (orderRes.fillPrice || orderRes.avgPrice) {
+          finalExitPrice = orderRes.fillPrice || orderRes.avgPrice;
+        } else if (orderRes.id) {
+          await new Promise((r) => setTimeout(r, 400));
+          try {
+            const details = await this.fetchOrderDetails(orderRes.id);
+            if (details && (details.fillPrice || details.avgPrice || (details.filledValue && details.filledQuantity))) {
+              finalExitPrice = details.fillPrice || details.avgPrice || (details.filledValue / details.filledQuantity);
+            }
+          } catch {}
+        }
       } catch (err: any) {
         console.error(`[Trading 212] ❌ Erreur lors de la vente T212 (${err.message})`);
       }
     }
 
-    // 3. Calcul du P&L et mise à jour BDD locale
+    // 3. Calcul du P&L exact et mise à jour BDD locale
     let pnl = 0;
     if (position.side === 'LONG') {
-      pnl = (exitPrice - position.entryPrice) * position.qty;
+      pnl = (finalExitPrice - position.entryPrice) * position.qty;
     } else {
-      pnl = (position.entryPrice - exitPrice) * position.qty;
+      pnl = (position.entryPrice - finalExitPrice) * position.qty;
     }
     const pnlPercent = position.allocatedCash > 0 ? (pnl / position.allocatedCash) * 100 : 0;
 
-    position.currentPrice = exitPrice;
-    position.exitPrice = exitPrice;
+    position.currentPrice = finalExitPrice;
+    position.exitPrice = finalExitPrice;
     position.exitTime = new Date();
     position.exitReason = reason;
     position.status = 'CLOSED';
@@ -192,7 +235,7 @@ export class Trading212BrokerAdapter implements ExecutionBrokerPort {
     const newAvailableCash = parseFloat((portfolio.availableCash + returnedCash).toFixed(2));
     await this.positionRepo.updatePortfolioCash(newAvailableCash);
 
-    console.log(`[Trading 212] 🏁 [CLÔTURE EXÉCUTÉE] ID #${position.id} -> ${position.symbol} fermé @ ${exitPrice}$ [Raison: ${reason}] | P&L: ${pnl >= 0 ? '+' : ''}${pnl.toFixed(2)}$ (${pnlPercent.toFixed(2)}%)`);
+    console.log(`[Trading 212] 🏁 [CLÔTURE EXÉCUTÉE] ID #${position.id} -> ${position.symbol} fermé @ ${finalExitPrice}$ [Raison: ${reason}] | P&L: ${pnl >= 0 ? '+' : ''}${pnl.toFixed(2)}$ (${pnlPercent.toFixed(2)}%)`);
 
     return position;
   }
@@ -373,6 +416,49 @@ export class Trading212BrokerAdapter implements ExecutionBrokerPort {
         reject(new Error('Timeout ordre Market T212'));
       });
       req.write(payload);
+      req.end();
+    });
+  }
+
+  /**
+   * Récupère les détails d'un ordre spécifique par son ID (pour obtenir le cours d'exécution exact fillPrice)
+   */
+  private fetchOrderDetails(orderId: number | string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const url = new URL(`/api/v0/equity/orders/${orderId}`, this.baseUrl);
+      const options = {
+        hostname: url.hostname,
+        port: url.port || 443,
+        path: url.pathname,
+        method: 'GET',
+        headers: {
+          Authorization: this.authHeader,
+          'User-Agent': 'IntradayTrader/1.0'
+        },
+        timeout: 6000
+      };
+
+      const req = https.request(options, (res) => {
+        let data = '';
+        res.on('data', (chunk) => (data += chunk));
+        res.on('end', () => {
+          if (res.statusCode && res.statusCode >= 200 && res.statusCode < 300) {
+            try {
+              resolve(JSON.parse(data));
+            } catch {
+              resolve(null);
+            }
+          } else {
+            resolve(null);
+          }
+        });
+      });
+
+      req.on('error', () => resolve(null));
+      req.on('timeout', () => {
+        req.destroy();
+        resolve(null);
+      });
       req.end();
     });
   }
